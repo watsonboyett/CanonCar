@@ -1,0 +1,7 @@
+.DS_STORE
+
+planning/
+
+firmware/StickControl.X/build
+firmware/StickControl.X/dist
+

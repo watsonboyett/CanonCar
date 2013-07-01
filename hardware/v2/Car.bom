@@ -1,0 +1,63 @@
+Partlist exported from C:/Users/wboyett/Desktop/CanonCar/Car.sch at 8/13/2012 3:12:02 PM
+
+Assembly variant: 
+
+Part   Value          Device          Package      Description               
+1LB    100n           C-USC0805       C0805        CAPACITOR, American symbol
+1PB    100u           C-USC0805       C0805        CAPACITOR, American symbol
+2LB    100n           C-USC0805       C0805        CAPACITOR, American symbol
+2PB    100u           C-USC0805       C0805        CAPACITOR, American symbol
+3.3V   317EMP         317EMP          SOT223       Positive VOLTAGE REGULATOR
+5V     317EMP         317EMP          SOT223       Positive VOLTAGE REGULATOR
+11CC   820p           C-USC0805       C0805        CAPACITOR, American symbol
+11CT   820p           C-USC0805       C0805        CAPACITOR, American symbol
+11RC   1k             R-US_R0805      R0805        RESISTOR, American symbol 
+11RP   10k            R-US_R0805      R0805        RESISTOR, American symbol 
+11RS   1              R-US_R2512      R2512        RESISTOR, American symbol 
+11RT   56k            R-US_R0805      R0805        RESISTOR, American symbol 
+12CC   820p           C-USC0805       C0805        CAPACITOR, American symbol
+12CT   820p           C-USC0805       C0805        CAPACITOR, American symbol
+12RC   1k             R-US_R0805      R0805        RESISTOR, American symbol 
+12RP   10k            R-US_R0805      R0805        RESISTOR, American symbol 
+12RS   1              R-US_R2512      R2512        RESISTOR, American symbol 
+12RT   56k            R-US_R0805      R0805        RESISTOR, American symbol 
+21CC   820p           C-USC0805       C0805        CAPACITOR, American symbol
+21CT   820p           C-USC0805       C0805        CAPACITOR, American symbol
+21RC   1k             R-US_R0805      R0805        RESISTOR, American symbol 
+21RP   10k            R-US_R0805      R0805        RESISTOR, American symbol 
+21RS   1              R-US_R2512      R2512        RESISTOR, American symbol 
+21RT   56k            R-US_R0805      R0805        RESISTOR, American symbol 
+22CC   820p           C-USC0805       C0805        CAPACITOR, American symbol
+22CT   820p           C-USC0805       C0805        CAPACITOR, American symbol
+22RC   1k             R-US_R0805      R0805        RESISTOR, American symbol 
+22RP   10k            R-US_R0805      R0805        RESISTOR, American symbol 
+22RS   1              R-US_R2512      R2512        RESISTOR, American symbol 
+22RT   56k            R-US_R0805      R0805        RESISTOR, American symbol 
+AIN                   M03POLAR        MOLEX-1X3    Header 3                  
+ANT                   PINHD-1X1       1X01         PIN HEADER                
+ARMS   MCP23S08       MCP23S08        SO-18W                                 
+BRAINS PIC24HJXXGP502 PIC24HJXXGP502  SO28W                                  
+C1     10u            C-USC0805       C0805        CAPACITOR, American symbol
+C2     100n           C-USC0805       C0805        CAPACITOR, American symbol
+C3     100n           C-USC0805       C0805        CAPACITOR, American symbol
+C4     100n           C-USC0805       C0805        CAPACITOR, American symbol
+C9     1u             C-USC0805       C0805        CAPACITOR, American symbol
+C10    0.1u           C-USC0805       C0805        CAPACITOR, American symbol
+C11    1u             C-USC0805       C0805        CAPACITOR, American symbol
+C12    0.1u           C-USC0805       C0805        CAPACITOR, American symbol
+DIO                   M081X08         1X08         Header 8                  
+H1     MTS62C19A      MTS62C19A       SOP24L                                 
+H1C                   M04POLAR        MOLEX-1X4    Header 4                  
+H2     MTS62C19A      MTS62C19A       SOP24L                                 
+H2C                   M04POLAR        MOLEX-1X4    Header 4                  
+ICD                   PINHD-1X5       1X05         PIN HEADER                
+JP1                   M02POLAR        MOLEX-1X2    Header 2                  
+LED1                  LEDCHIP-LED0805 CHIP-LED0805 LED                       
+MOUTH  RFM12          RFM12           RFM12-XXX-S2                           
+R13    240            R-US_R0805      R0805        RESISTOR, American symbol 
+R14    953            R-US_R0805      R0805        RESISTOR, American symbol 
+R15    240            R-US_R0805      R0805        RESISTOR, American symbol 
+R16    390            R-US_R0805      R0805        RESISTOR, American symbol 
+RL1    240            R-US_R0805      R0805        RESISTOR, American symbol 
+RN1    10k            R-US_R0805      R0805        RESISTOR, American symbol 
+RN2    10k            R-US_R0805      R0805        RESISTOR, American symbol 

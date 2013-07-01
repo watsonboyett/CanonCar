@@ -1,0 +1,68 @@
+Partlist
+
+Exported from Car.sch at 7/30/2012 1:19:44 PM
+
+EAGLE Version 6.2.0 Copyright (c) 1988-2012 CadSoft
+
+Assembly variant: 
+
+Part     Value          Device          Package      Library             Sheet
+
+1LB      100n           C-USC0805       C0805        rcl                 1
+1PB      100u           C-USC0805       C0805        rcl                 1
+2LB      100n           C-USC0805       C0805        rcl                 1
+2PB      100u           C-USC0805       C0805        rcl                 1
+3.3V     317EMP         317EMP          SOT223       linear              1
+5V       317EMP         317EMP          SOT223       linear              1
+11CC     820p           C-USC0805       C0805        rcl                 1
+11CT     820p           C-USC0805       C0805        rcl                 1
+11RC     1k             R-US_R0805      R0805        rcl                 1
+11RP     10k            R-US_R0805      R0805        rcl                 1
+11RS     1              R-US_R2512      R2512        resistor            1
+11RT     56k            R-US_R0805      R0805        rcl                 1
+12CC     820p           C-USC0805       C0805        rcl                 1
+12CT     820p           C-USC0805       C0805        rcl                 1
+12RC     1k             R-US_R0805      R0805        rcl                 1
+12RP     10k            R-US_R0805      R0805        rcl                 1
+12RS     1              R-US_R2512      R2512        resistor            1
+12RT     56k            R-US_R0805      R0805        rcl                 1
+21CC     820p           C-USC0805       C0805        rcl                 1
+21CT     820p           C-USC0805       C0805        rcl                 1
+21RC     1k             R-US_R0805      R0805        rcl                 1
+21RP     10k            R-US_R0805      R0805        rcl                 1
+21RS     1              R-US_R2512      R2512        resistor            1
+21RT     56k            R-US_R0805      R0805        rcl                 1
+22CC     820p           C-USC0805       C0805        rcl                 1
+22CT     820p           C-USC0805       C0805        rcl                 1
+22RC     1k             R-US_R0805      R0805        rcl                 1
+22RP     10k            R-US_R0805      R0805        rcl                 1
+22RS     1              R-US_R2512      R2512        resistor            1
+22RT     56k            R-US_R0805      R0805        rcl                 1
+AIN                     M03POLAR        MOLEX-1X3    SparkFun-Connectors 1
+ANT                     PINHD-1X1       1X01         pinhead             1
+ARMS     MCP23S08       MCP23S08        SO-18W       microchip           1
+BRAINS   PIC24HJXXGP502 PIC24HJXXGP502  SO28W        microchip           1
+C1       10u            C-USC0805       C0805        rcl                 1
+C2       100n           C-USC0805       C0805        rcl                 1
+C3       100n           C-USC0805       C0805        rcl                 1
+C4       100n           C-USC0805       C0805        rcl                 1
+C9       1u             C-USC0805       C0805        rcl                 1
+C10      0.1u           C-USC0805       C0805        rcl                 1
+C11      1u             C-USC0805       C0805        rcl                 1
+C12      0.1u           C-USC0805       C0805        rcl                 1
+DIO                     M081X08         1X08         SparkFun-Connectors 1
+H1       MTS62C19A      MTS62C19A       SOP24L       microchip           1
+H1C                     M04POLAR        MOLEX-1X4    SparkFun-Connectors 1
+H2       MTS62C19A      MTS62C19A       SOP24L       microchip           1
+H2C                     M04POLAR        MOLEX-1X4    SparkFun-Connectors 1
+ICD                     PINHD-1X5       1X05         pinhead             1
+JP1                     M02POLAR        MOLEX-1X2    SparkFun-Connectors 1
+LED1                    LEDCHIP-LED0805 CHIP-LED0805 led                 1
+MOUTH    RFM12          RFM12           RFM12-XXX-S2 SparkFun-RF         1
+R13                     R-US_R0805      R0805        rcl                 1
+R14                     R-US_R0805      R0805        rcl                 1
+R15                     R-US_R0805      R0805        rcl                 1
+R16                     R-US_R0805      R0805        rcl                 1
+RL1      470            R-US_R0805      R0805        rcl                 1
+RN1      10k            R-US_R0805      R0805        rcl                 1
+RN2      10k            R-US_R0805      R0805        rcl                 1
