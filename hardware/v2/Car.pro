@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /Users/merlin/Google Drive/projects/CanonCar/CanonCar_v2/Car.brd
+Job           : C:/Users/Artem/Desktop/projects/CanonCar/hardware/v2/Car.brd
 
-Start at      : 23:32:31 (11/4/12)
-End at        : 23:33:56 (11/4/12)
-Elapsed time  : 00:01:25
+Start at      : 17:40:27 (11/30/2014)
+End at        : 17:48:53 (11/30/2014)
+Elapsed time  : 00:00:12
 
-Signals       :    68   RoutingGrid: 3.93701 mil  Layers: 2
+Signals       :    68   RoutingGrid: 12.5 mil  Layers: 2
 Connections   :   191   predefined:  0 ( 0 Vias )
 
-Router memory :   2042760
+Router memory :   236640
 
 Passname          :    Busses     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:00  00:00:29  00:00:14  00:00:15  00:00:13  00:00:14
-Number of Ripups  :         0        19         0         0         0         0
+Time per pass     :  00:00:00  00:00:06  00:00:02  00:00:01  00:00:01  00:00:02
+Number of Ripups  :         0        41         0         0         0         0
 max. Level        :         0         2         0         0         0         0
-max. Total        :         0        55         0         0         0         0
+max. Total        :         0        56         0         0         0         0
 
-Routed            :         1       191       191       191       191       191
-Vias              :         0       342       236       196       190       179
-Resolution        :     0.5 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Routed            :         2       191       191       191       191       191
+Vias              :         0       289       212       194       187       183
+Resolution        :     1.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
 Final             : 100.0% finished
