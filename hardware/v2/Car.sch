@@ -10848,7 +10848,7 @@ Source: DCJ0303.pdf</description>
 <part name="C11" library="rcl" deviceset="C-US" device="C0805" value="1u"/>
 <part name="C12" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="1LDB" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
-<part name="HB" library="led" deviceset="LED" device="CHIP-LED0805"/>
+<part name="HB" library="led" deviceset="LED" device="CHIP-LED0805" value="LED"/>
 <part name="2LDB" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="2LGB" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="1LGB" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
@@ -10898,7 +10898,7 @@ Source: DCJ0303.pdf</description>
 <part name="C5" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="AIO" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="PWR" library="led" deviceset="LED" device="CHIP-LED0805"/>
+<part name="PWR" library="led" deviceset="LED" device="CHIP-LED0805" value="LED"/>
 <part name="RL2" library="rcl" deviceset="R-US_" device="R0805" value="1k"/>
 <part name="VCC1" library="supply1" deviceset="VCCIO" device=""/>
 <part name="VCC2" library="supply1" deviceset="VCCIO" device=""/>
@@ -10907,7 +10907,7 @@ Source: DCJ0303.pdf</description>
 <part name="1LDC" library="SparkFun-Passives" deviceset="CAP_POL" device="C" value="100u"/>
 <part name="2LDC" library="SparkFun-Passives" deviceset="CAP_POL" device="C" value="100u"/>
 <part name="J1" library="con-jack" deviceset="DCJ0303" device=""/>
-<part name="ANT" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="ANT" library="wirepad" deviceset="2,15/1,0" device="" value="ANT"/>
 <part name="PSC" library="SparkFun-Passives" deviceset="CAP_POL" device="C" value="100u"/>
 </parts>
 <sheets>
@@ -10988,17 +10988,17 @@ Source: DCJ0303.pdf</description>
 <instance part="M2" gate="G$1" x="248.92" y="25.4" rot="R180"/>
 <instance part="M1" gate="G$1" x="248.92" y="119.38" rot="R180"/>
 <instance part="+3V5" gate="G$1" x="-101.6" y="111.76"/>
-<instance part="GND13" gate="1" x="-101.6" y="73.66"/>
-<instance part="DIO" gate="G$1" x="93.98" y="-63.5" rot="R180"/>
+<instance part="GND13" gate="1" x="-96.52" y="111.76" rot="R180"/>
+<instance part="DIO" gate="G$1" x="106.68" y="-60.96" rot="R180"/>
 <instance part="ICD" gate="G$1" x="-114.3" y="58.42" rot="MR180"/>
-<instance part="GND14" gate="1" x="81.28" y="-73.66"/>
-<instance part="+3V6" gate="G$1" x="81.28" y="-38.1"/>
+<instance part="GND14" gate="1" x="86.36" y="-38.1" rot="R180"/>
+<instance part="+3V6" gate="G$1" x="93.98" y="-38.1"/>
 <instance part="GND15" gate="1" x="38.1" y="-71.12"/>
 <instance part="M.ARMS" gate="G$1" x="73.66" y="73.66"/>
 <instance part="+3V7" gate="G$1" x="73.66" y="109.22"/>
 <instance part="GND3" gate="1" x="78.74" y="93.98" rot="R180"/>
 <instance part="C5" gate="G$1" x="86.36" y="96.52"/>
-<instance part="AIO" gate="G$1" x="-116.84" y="83.82" rot="MR180"/>
+<instance part="AIO" gate="G$1" x="-116.84" y="86.36" rot="MR180"/>
 <instance part="GND5" gate="1" x="-101.6" y="38.1"/>
 <instance part="PWR" gate="G$1" x="-2.54" y="170.18"/>
 <instance part="RL2" gate="G$1" x="-2.54" y="157.48" rot="R270"/>
@@ -11008,7 +11008,7 @@ Source: DCJ0303.pdf</description>
 <instance part="VCC4" gate="G$1" x="68.58" y="93.98"/>
 <instance part="1LDC" gate="G$1" x="203.2" y="154.94" rot="R270"/>
 <instance part="2LDC" gate="G$1" x="203.2" y="60.96" rot="R270"/>
-<instance part="J1" gate="G$1" x="-88.9" y="180.34" rot="MR180"/>
+<instance part="J1" gate="G$1" x="-88.9" y="177.8"/>
 <instance part="ANT" gate="1" x="7.62" y="-66.04" rot="R180"/>
 <instance part="PSC" gate="G$1" x="-66.04" y="175.26"/>
 </instances>
@@ -11192,9 +11192,9 @@ Source: DCJ0303.pdf</description>
 <wire x1="-48.26" y1="35.56" x2="-48.26" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-48.26" y1="22.86" x2="-83.82" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-83.82" y1="22.86" x2="-83.82" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="-83.82" y1="99.06" x2="-106.68" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="2"/>
 <junction x="-48.26" y="35.56"/>
+<pinref part="AIO" gate="G$1" pin="3"/>
+<wire x1="-83.82" y1="99.06" x2="-106.68" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$46" class="0">
@@ -11347,15 +11347,15 @@ Source: DCJ0303.pdf</description>
 </segment>
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<wire x1="-106.68" y1="101.6" x2="-101.6" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="-101.6" y1="101.6" x2="-101.6" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="-106.68" y1="104.14" x2="-101.6" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="-101.6" y1="104.14" x2="-101.6" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="AIO" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="DIO" gate="G$1" pin="1"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
-<wire x1="83.82" y1="-45.72" x2="81.28" y2="-45.72" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-45.72" x2="81.28" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-43.18" x2="93.98" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="-43.18" x2="93.98" y2="-40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="M.ARMS" gate="G$1" pin="VDD"/>
@@ -11527,14 +11527,15 @@ Source: DCJ0303.pdf</description>
 </segment>
 <segment>
 <pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="-81.28" y1="177.8" x2="-78.74" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="-78.74" y1="165.1" x2="-78.74" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="1"/>
 <pinref part="PSC" gate="G$1" pin="-"/>
-<wire x1="-78.74" y1="167.64" x2="-78.74" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="-78.74" y1="167.64" x2="-78.74" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="170.18" x2="-66.04" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="167.64" x2="-78.74" y2="167.64" width="0.1524" layer="91"/>
 <junction x="-78.74" y="167.64"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="-81.28" y1="177.8" x2="-78.74" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="-78.74" y1="177.8" x2="-78.74" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="218.44" y1="78.74" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
@@ -11605,18 +11606,6 @@ Source: DCJ0303.pdf</description>
 <wire x1="218.44" y1="-22.86" x2="218.44" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND13" gate="1" pin="GND"/>
-<wire x1="-106.68" y1="78.74" x2="-101.6" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="-101.6" y1="78.74" x2="-101.6" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="10"/>
-</segment>
-<segment>
-<pinref part="DIO" gate="G$1" pin="10"/>
-<pinref part="GND14" gate="1" pin="GND"/>
-<wire x1="83.82" y1="-68.58" x2="81.28" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-68.58" x2="81.28" y2="-71.12" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="ARMS" gate="G$1" pin="A0"/>
 <pinref part="GND15" gate="1" pin="GND"/>
 <wire x1="43.18" y1="-63.5" x2="38.1" y2="-63.5" width="0.1524" layer="91"/>
@@ -11636,6 +11625,18 @@ Source: DCJ0303.pdf</description>
 <wire x1="86.36" y1="88.9" x2="78.74" y2="88.9" width="0.1524" layer="91"/>
 <junction x="78.74" y="88.9"/>
 </segment>
+<segment>
+<pinref part="GND14" gate="1" pin="GND"/>
+<wire x1="86.36" y1="-40.64" x2="86.36" y2="-45.72" width="0.1524" layer="91"/>
+<pinref part="DIO" gate="G$1" pin="2"/>
+<wire x1="86.36" y1="-45.72" x2="96.52" y2="-45.72" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="-96.52" y1="109.22" x2="-96.52" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="AIO" gate="G$1" pin="2"/>
+<wire x1="-96.52" y1="101.6" x2="-106.68" y2="101.6" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+12V" class="1">
 <segment>
@@ -11647,7 +11648,6 @@ Source: DCJ0303.pdf</description>
 <pinref part="5V" gate="A1" pin="VI"/>
 <pinref part="3V3" gate="A1" pin="VI"/>
 <pinref part="P+2" gate="1" pin="+12V"/>
-<wire x1="-81.28" y1="180.34" x2="-66.04" y2="180.34" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="-66.04" y1="180.34" x2="-53.34" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="167.64" x2="-45.72" y2="180.34" width="0.1524" layer="91"/>
@@ -11657,11 +11657,13 @@ Source: DCJ0303.pdf</description>
 <wire x1="-45.72" y1="134.62" x2="-53.34" y2="134.62" width="0.1524" layer="91"/>
 <junction x="-53.34" y="180.34"/>
 <junction x="-53.34" y="180.34"/>
-<pinref part="J1" gate="G$1" pin="2"/>
 <junction x="-45.72" y="180.34"/>
 <junction x="-45.72" y="134.62"/>
 <pinref part="PSC" gate="G$1" pin="+"/>
 <wire x1="-66.04" y1="177.8" x2="-66.04" y2="180.34" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="-81.28" y1="180.34" x2="-66.04" y2="180.34" width="0.1524" layer="91"/>
+<junction x="-66.04" y="180.34"/>
 </segment>
 <segment>
 <wire x1="210.82" y1="144.78" x2="210.82" y2="154.94" width="0.1524" layer="91"/>
@@ -11796,41 +11798,6 @@ Source: DCJ0303.pdf</description>
 <wire x1="15.24" y1="30.48" x2="7.62" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$43" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP0"/>
-<wire x1="78.74" y1="-48.26" x2="83.82" y2="-48.26" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$44" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP1"/>
-<wire x1="83.82" y1="-50.8" x2="78.74" y2="-50.8" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="3"/>
-</segment>
-</net>
-<net name="N$48" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP2"/>
-<wire x1="78.74" y1="-53.34" x2="83.82" y2="-53.34" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="4"/>
-</segment>
-</net>
-<net name="N$50" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP4"/>
-<wire x1="78.74" y1="-58.42" x2="83.82" y2="-58.42" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="6"/>
-</segment>
-</net>
-<net name="N$51" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP5"/>
-<wire x1="83.82" y1="-60.96" x2="78.74" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="7"/>
-</segment>
-</net>
 <net name="N$7" class="0">
 <segment>
 <pinref part="MOUTH" gate="G$1" pin="SCLK"/>
@@ -11873,20 +11840,6 @@ Source: DCJ0303.pdf</description>
 <wire x1="-43.18" y1="-66.04" x2="-25.4" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP6"/>
-<wire x1="78.74" y1="-63.5" x2="83.82" y2="-63.5" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="8"/>
-</segment>
-</net>
-<net name="N$52" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP7"/>
-<wire x1="83.82" y1="-66.04" x2="78.74" y2="-66.04" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="9"/>
-</segment>
-</net>
 <net name="N$53" class="0">
 <segment>
 <pinref part="BRAINS" gate="G$1" pin="RA1/CN3"/>
@@ -11894,8 +11847,8 @@ Source: DCJ0303.pdf</description>
 <wire x1="-45.72" y1="33.02" x2="-45.72" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="20.32" x2="-86.36" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="20.32" x2="-86.36" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="AIO" gate="G$1" pin="4"/>
 <wire x1="-86.36" y1="96.52" x2="-106.68" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="N$54" class="0">
@@ -11903,7 +11856,7 @@ Source: DCJ0303.pdf</description>
 <pinref part="BRAINS" gate="G$1" pin="RB2/CN6"/>
 <wire x1="7.62" y1="58.42" x2="17.78" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="58.42" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="7"/>
+<pinref part="AIO" gate="G$1" pin="8"/>
 <wire x1="-106.68" y1="86.36" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -11912,15 +11865,8 @@ Source: DCJ0303.pdf</description>
 <pinref part="BRAINS" gate="G$1" pin="RB3/CN7"/>
 <wire x1="7.62" y1="55.88" x2="20.32" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="55.88" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="AIO" gate="G$1" pin="9"/>
 <wire x1="20.32" y1="83.82" x2="-106.68" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="8"/>
-</segment>
-</net>
-<net name="N$49" class="0">
-<segment>
-<pinref part="ARMS" gate="G$1" pin="GP3"/>
-<wire x1="78.74" y1="-55.88" x2="83.82" y2="-55.88" width="0.1524" layer="91"/>
-<pinref part="DIO" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="N$1" class="1">
@@ -12090,19 +12036,19 @@ Source: DCJ0303.pdf</description>
 <wire x1="-43.18" y1="30.48" x2="-43.18" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="17.78" x2="-88.9" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="17.78" x2="-88.9" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="AIO" gate="G$1" pin="5"/>
 <wire x1="-88.9" y1="93.98" x2="-106.68" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
-<wire x1="-106.68" y1="91.44" x2="-91.44" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="-91.44" y1="91.44" x2="-91.44" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="-91.44" y1="15.24" x2="-40.64" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="15.24" x2="-40.64" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="BRAINS" gate="G$1" pin="RA3/CN29"/>
 <wire x1="-40.64" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="5"/>
+<pinref part="AIO" gate="G$1" pin="6"/>
+<wire x1="-91.44" y1="91.44" x2="-106.68" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$57" class="0">
@@ -12112,8 +12058,8 @@ Source: DCJ0303.pdf</description>
 <wire x1="-38.1" y1="25.4" x2="-38.1" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="12.7" x2="-93.98" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="-93.98" y1="12.7" x2="-93.98" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="AIO" gate="G$1" pin="7"/>
 <wire x1="-93.98" y1="88.9" x2="-106.68" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="6"/>
 </segment>
 </net>
 <net name="N$59" class="0">
@@ -12121,8 +12067,8 @@ Source: DCJ0303.pdf</description>
 <pinref part="BRAINS" gate="G$1" pin="RB4/CN1"/>
 <wire x1="7.62" y1="53.34" x2="22.86" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="53.34" x2="22.86" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="AIO" gate="G$1" pin="10"/>
 <wire x1="22.86" y1="81.28" x2="-106.68" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="AIO" gate="G$1" pin="9"/>
 </segment>
 </net>
 <net name="N$65" class="0">
@@ -12169,6 +12115,62 @@ Source: DCJ0303.pdf</description>
 <pinref part="MOUTH" gate="G$1" pin="ANT"/>
 <pinref part="ANT" gate="1" pin="P"/>
 <wire x1="0" y1="-66.04" x2="5.08" y2="-66.04" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="ARMS" gate="G$1" pin="GP0"/>
+<pinref part="DIO" gate="G$1" pin="3"/>
+<wire x1="78.74" y1="-48.26" x2="96.52" y2="-48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$39" class="0">
+<segment>
+<pinref part="DIO" gate="G$1" pin="4"/>
+<pinref part="ARMS" gate="G$1" pin="GP1"/>
+<wire x1="96.52" y1="-50.8" x2="78.74" y2="-50.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$43" class="0">
+<segment>
+<pinref part="ARMS" gate="G$1" pin="GP2"/>
+<pinref part="DIO" gate="G$1" pin="5"/>
+<wire x1="78.74" y1="-53.34" x2="96.52" y2="-53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$44" class="0">
+<segment>
+<pinref part="DIO" gate="G$1" pin="6"/>
+<pinref part="ARMS" gate="G$1" pin="GP3"/>
+<wire x1="96.52" y1="-55.88" x2="78.74" y2="-55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$47" class="0">
+<segment>
+<pinref part="ARMS" gate="G$1" pin="GP4"/>
+<pinref part="DIO" gate="G$1" pin="7"/>
+<wire x1="78.74" y1="-58.42" x2="96.52" y2="-58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$48" class="0">
+<segment>
+<pinref part="DIO" gate="G$1" pin="8"/>
+<pinref part="ARMS" gate="G$1" pin="GP5"/>
+<wire x1="96.52" y1="-60.96" x2="78.74" y2="-60.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$49" class="0">
+<segment>
+<pinref part="ARMS" gate="G$1" pin="GP6"/>
+<pinref part="DIO" gate="G$1" pin="9"/>
+<wire x1="78.74" y1="-63.5" x2="96.52" y2="-63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$50" class="0">
+<segment>
+<pinref part="DIO" gate="G$1" pin="10"/>
+<pinref part="ARMS" gate="G$1" pin="GP7"/>
+<wire x1="96.52" y1="-66.04" x2="78.74" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
