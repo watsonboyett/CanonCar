@@ -86,24 +86,28 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void) {
 }
 
 /* set motor direction */
-void motor_set_dir(unsigned int motor, unsigned int chan, unsigned int dir) {
-    if (motor == 1) {
+void motor_set_dir(MotorDriver_e driver, unsigned int chan, unsigned int dir) {
+    switch (driver)
+    {
+    case Motor1:
         if (chan == 1) {
-            m1p1_pin = dir;
+            //motor_write_dir()
         } else if (chan == 2) {
             m1p2_pin = dir;
         }
-    } else if (motor == 2) {
+        break;
+    case Motor2:
         if (chan == 1) {
             m2p1_pin = dir;
         } else if (chan == 2) {
             m2p2_pin = dir;
         }
+        break;
     }
 }
 
 /* stop motor voltage/speed */
-void motor_set_speed(unsigned int motor, unsigned int chan, float val) {
+void motor_set_speed(MotorDriver_e driver, unsigned int chan, float val) {
     unsigned int buf = val * PWM_RES;
     // ensure output is clamped at max value
     if (buf > PWM_RES) {
@@ -111,13 +115,16 @@ void motor_set_speed(unsigned int motor, unsigned int chan, float val) {
     }
 
     // set output voltage
-    if (motor == 1) {
+    switch (driver)
+    {
+    case Motor1:
         if (chan == 1) {
             m1v1_dc = buf;
         } else if (chan == 2) {
             m1v2_dc = buf;
         }
-    } else if (motor == 2) {
+        break;
+    case Motor2:
         if (chan == 1) {
             m2v1_dc = buf;
         } else if (chan == 2) {
