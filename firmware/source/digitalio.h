@@ -10,11 +10,11 @@
 
 
 // DIO chip select pin
-#define DIO_CS_TRIS TRISBbits.TRISB12
-#define DIO_CS PORTBbits.RB12
+#define DIO_CS_TRIS _TRISB12
+#define DIO_CS _RB12
 // DIO interrupt pin
-#define DIO_INT_TRIS TRISBbits.TRISB13
-#define DIO_INT PORTBbits.RB13
+#define DIO_INT_TRIS _TRISB13
+#define DIO_INT _RB13
 
 // R/W ops: device header + addr + op flag
 #define DIO_CTRL_READ 0b01000001
