@@ -9,17 +9,9 @@
 #include "motor.h"
 #include "util.h"
 
-
-
-/* initialize motor drivers */
-void motor_init() {
-
-    // setup motor direction pins
-    m1p1_dir = 0;
-    m1p2_dir = 0;
-    m2p1_dir = 0;
-    m2p2_dir = 0;
-
+/* initialize motor pins and modules */
+void motor_init()
+{
     // setup open drain outputs (for full motor voltage range)
     //ODCB = ODCB | 0b0000000111100000;
 
@@ -60,75 +52,151 @@ void motor_init() {
     OC4R = 0; // Load the Compare Register Value
     OC4CONbits.OCM = 0b110; // Select the Output Compare mode
 
-
     // Initialize and enable Timer2
     ConfigIntTimer2(T2_INT_PRIOR_2 & T2_INT_ON);
     WriteTimer2(0);
-    OpenTimer2(T2_ON & T2_GATE_OFF & T2_IDLE_STOP &
-            T2_PS_1_1 & T2_SOURCE_INT, PWM_RES);
+    OpenTimer2(T2_ON & T2_GATE_OFF & T2_IDLE_STOP
+               & T2_PS_1_1 & T2_SOURCE_INT, PWM_RES);
 }
 
 
-unsigned int m1v1_dc = 0;
-unsigned int m1v2_dc = 0;
-unsigned int m2v1_dc = 0;
-unsigned int m2v2_dc = 0;
+MotorMode_e Driver1_Mode = DC;
+MotorMode_e Driver2_Mode = DC;
+
+void motor_set_mode(MotorDriver_e driver, MotorMode_e mode)
+{
+    if (driver == Driver1)
+    {
+        Driver1_Mode = mode;
+    }
+    else if (driver == Driver2)
+    {
+        Driver2_Mode = mode;
+    }
+}
+
+
+uint16 Driver1_Channel1_DC = 0;
+uint16 Driver1_Channel2_DC = 0;
+uint16 Driver2_Channel1_DC = 0;
+uint16 Driver2_Channel2_DC = 0;
 
 /* update motor control voltages (PWM) */
-void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
+{
     /* Interrupt Service Routine code goes here */
-    OC1RS = m1v1_dc; // Write Duty Cycle value for next PWM cycle
-    OC2RS = m1v2_dc; // Write Duty Cycle value for next PWM cycle
-    OC3RS = m2v1_dc; // Write Duty Cycle value for next PWM cycle
-    OC4RS = m2v2_dc; // Write Duty Cycle value for next PWM cycle
+    OC1RS = Driver1_Channel1_DC; // Write Duty Cycle value for next PWM cycle
+    OC2RS = Driver1_Channel2_DC; // Write Duty Cycle value for next PWM cycle
+    OC3RS = Driver2_Channel1_DC; // Write Duty Cycle value for next PWM cycle
+    OC4RS = Driver2_Channel2_DC; // Write Duty Cycle value for next PWM cycle
 
     IFS0bits.T2IF = 0; // Clear Timer 2 interrupt flag
 }
 
 /* set motor direction */
-void motor_set_dir(MotorDriver_e driver, unsigned int chan, unsigned int dir) {
+void motor_set_dir(MotorDriver_e driver, DriverChannel_e channel, MotorDirection_e dir)
+{
+    uint8 port_bits = 0;
+
     switch (driver)
     {
-    case Motor1:
-        if (chan == 1) {
-            //motor_write_dir()
-        } else if (chan == 2) {
-            m1p2_pin = dir;
+    case Driver1:
+        if (channel == Channel1 || Driver1_Mode == Stepper)
+        {
+            port_bits |= 1 << D1C1_PHASE;
+        }
+        else if (channel == Channel2 || Driver1_Mode == Stepper)
+        {
+            port_bits |= 1 << D1C2_PHASE;
         }
         break;
-    case Motor2:
-        if (chan == 1) {
-            m2p1_pin = dir;
-        } else if (chan == 2) {
-            m2p2_pin = dir;
+    case Driver2:
+
+        if (channel == Channel1)
+        {
+            port_bits |= 1 << D2C1_PHASE;
+        }
+        else if (channel == Channel2)
+        {
+            port_bits |= 1 << D2C2_PHASE;
         }
         break;
     }
+
+    //spi_set_bit(SpiMotorModule, port_bits, dir);
+}
+
+void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, MotorCurrentOutput_e current)
+{
+    uint8 port_bits = 0;
+    uint8 port_values = 0;
+
+    // NOTE: current pins for both channels are wired together, so they cannot
+    // be set independently
+    switch (driver)
+    {
+    case Driver1:
+        port_bits |= 1 << D1Cx_Ix1;
+        port_bits |= 1 << D1Cx_Ix2;
+        port_values |= current << D1Cx_Ix1;
+        break;
+    case Driver2:
+        port_bits |= 1 << D2Cx_Ix1;
+        port_bits |= 1 << D2Cx_Ix2;
+        port_values |= current << D2Cx_Ix1;
+        break;
+    }
+
+    //spi_set_bits(SpiMotorModule, port_bits, port_values);
 }
 
 /* stop motor voltage/speed */
-void motor_set_speed(MotorDriver_e driver, unsigned int chan, float val) {
-    unsigned int buf = val * PWM_RES;
+void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
+{
+    uint16 buf = val * PWM_RES;
     // ensure output is clamped at max value
-    if (buf > PWM_RES) {
+    if (buf > PWM_RES)
+    {
         buf = PWM_RES;
     }
 
     // set output voltage
     switch (driver)
     {
-    case Motor1:
-        if (chan == 1) {
-            m1v1_dc = buf;
-        } else if (chan == 2) {
-            m1v2_dc = buf;
+    case Driver1:
+        if (Driver1_Mode == Stepper)
+        {
+            Driver1_Channel1_DC = buf;
+            Driver1_Channel2_DC = buf;
+        }
+        else
+        {
+            if (channel == Channel1)
+            {
+                Driver1_Channel1_DC = buf;
+            }
+            else if (channel == Channel2)
+            {
+                Driver1_Channel2_DC = buf;
+            }
         }
         break;
-    case Motor2:
-        if (chan == 1) {
-            m2v1_dc = buf;
-        } else if (chan == 2) {
-            m2v2_dc = buf;
+    case Driver2:
+        if (Driver2_Mode == Stepper)
+        {
+            Driver2_Channel1_DC = buf;
+            Driver2_Channel2_DC = buf;
+        }
+        else
+        {
+            if (channel == Channel1)
+            {
+                Driver2_Channel1_DC = buf;
+            }
+            else if (channel == Channel2)
+            {
+                Driver2_Channel2_DC = buf;
+            }
         }
     }
 }

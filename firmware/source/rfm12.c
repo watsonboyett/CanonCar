@@ -34,6 +34,7 @@
 /* data:    16 bit data to be written to the RFM12 module                    */
 /*                                                                           */
 /* Return:  16 bit value read from RFM12 module                              */
+
 /*****************************************************************************/
 uint16 RFM12_Write(uint16 data)
 {
@@ -42,8 +43,8 @@ uint16 RFM12_Write(uint16 data)
 
     /* set select RFM12 module */
     RFM12_ClrNSEL();
-    
-    for (bit_i=0; bit_i < 16; bit_i++)
+
+    for (bit_i = 0; bit_i < 16; bit_i++)
     {
         /* transmit bit per bit, MSB first */
         if (data & 0x8000)
@@ -62,17 +63,16 @@ uint16 RFM12_Write(uint16 data)
         {
             data_in |= 1;
         }
-            
+
         /* toggle clock */
         RFM12_SetSCK();
         RFM12_ClrSCK();
     }
-    
+
     /* deselect RFM12 module */
     RFM12_SetNSEL();
     return (data_in);
 }
-
 
 /* config sequence for DIO SPI device */
 void RFM12_init()
@@ -92,26 +92,27 @@ void RFM12_init()
 /* Initialize RFM12 module.                                                  */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_setup(void)
 {
     RFM12_GetIRQ();
     RFM12_GetSDO();
-    
+
     RFM12_SetNSEL();
     RFM12_ClrSCK();
 
     /* wait until POR done */
     delay_ms(1000);
-    
+
     RFM12_Write(0x0000);
-    RFM12_Write(0xC0E0);    /* clockout: 10MHz */
-    RFM12_Write(0x80D7);    /* enable FIFO */
-    RFM12_Write(0xC2AB);    /* data filter: internal */
-    RFM12_Write(0xCA81);    /* set FIFO mode */
-    RFM12_Write(0xE000);    /* disable wakeuptimer */
-    RFM12_Write(0xC800);    /* disable low duty cycle */
-    RFM12_Write(0xC4F7);    /* AFC settings: autotuning: -10kHz...+7,5kHz */
+    RFM12_Write(0xC0E0); /* clockout: 10MHz */
+    RFM12_Write(0x80D7); /* enable FIFO */
+    RFM12_Write(0xC2AB); /* data filter: internal */
+    RFM12_Write(0xCA81); /* set FIFO mode */
+    RFM12_Write(0xE000); /* disable wakeuptimer */
+    RFM12_Write(0xC800); /* disable low duty cycle */
+    RFM12_Write(0xC4F7); /* AFC settings: autotuning: -10kHz...+7,5kHz */
 
     // set radio parameters
     RFM12_SetFreq(RFM12FREQ(433.92)); // Rx/Tx frequency 433.92MHz
@@ -152,10 +153,11 @@ void RFM12_setup(void)
 /*             7 .. reserved                                                 */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_SetBandwidth(uint8 bandwidth, uint8 gain, uint8 drssi)
 {
-    RFM12_Write(0x9400|((bandwidth&7)<<5)|((gain&3)<<3)|(drssi&7));
+    RFM12_Write(0x9400 | ((bandwidth & 7) << 5) | ((gain & 3) << 3) | (drssi & 7));
 }
 
 
@@ -170,6 +172,7 @@ void RFM12_SetBandwidth(uint8 bandwidth, uint8 gain, uint8 drssi)
 /*        Possible frequency values: 430.2400MHz .. 439.7575MHz              */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_SetFreq(uint16 freq)
 {
@@ -178,7 +181,7 @@ void RFM12_SetFreq(uint16 freq)
     {
         freq = 96;
     }
-    /* 439.7575MHz */
+        /* 439.7575MHz */
     else if (freq > 3903)
     {
         freq = 3903;
@@ -196,6 +199,7 @@ void RFM12_SetFreq(uint16 freq)
 /* baud:  desired baudrate                                                   */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_SetBaud(uint16 baud)
 {
@@ -203,15 +207,15 @@ void RFM12_SetBaud(uint16 baud)
     {
         return;
     }
-    
+
     /* Baudrate= 344827,58621/(R+1)/(1+CS*7) */
     if (baud < 5400)
     {
-        RFM12_Write(0xC680|((43104/baud)-1));
+        RFM12_Write(0xC680 | ((43104 / baud) - 1));
     }
     else
     {
-        RFM12_Write(0xC600|((344828UL/baud)-1));
+        RFM12_Write(0xC600 | ((344828UL / baud) - 1));
     }
 }
 
@@ -250,10 +254,11 @@ void RFM12_SetBaud(uint16 baud)
 /*         15 .. 240 kHz                                                     */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_SetPower(uint8 power, uint8 mod)
-{    
-    RFM12_Write(0x9800|(power&7)|((mod&15)<<4));
+{
+    RFM12_Write(0x9800 | (power & 7) | ((mod & 15) << 4));
 }
 
 
@@ -263,12 +268,13 @@ void RFM12_SetPower(uint8 power, uint8 mod)
 /* Waits until FIFO is ready.                                                */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_Ready(void)
-{   
+{
     RFM12_ClrSDI();
     RFM12_ClrNSEL();
-    
+
     /* wait until FIFO ready */
     while (!(RFM12_GetSDO()));
 }
@@ -284,15 +290,16 @@ void RFM12_Ready(void)
 /* length: data buffer length                                                */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_TxData(uint8 *data, uint8 length)
 {
     uint8 i;
-    
+
     /* enable TX */
     RFM12_Write(0x8238);
     RFM12_Ready();
-    
+
     /* send preamble (0xAA) */
     RFM12_Write(0xB8AA);
     RFM12_Ready();
@@ -300,26 +307,27 @@ void RFM12_TxData(uint8 *data, uint8 length)
     RFM12_Ready();
     RFM12_Write(0xB8AA);
     RFM12_Ready();
-    
+
     /* send sync word 0x2DD4 */
     RFM12_Write(0xB82D);
     RFM12_Ready();
     RFM12_Write(0xB8D4);
-    
+
     /* send data buffer */
-    for (i=0; i < length; i++)
-    {   RFM12_Ready();
-        RFM12_Write(0xB800|(*data++));
+    for (i = 0; i < length; i++)
+    {
+        RFM12_Ready();
+        RFM12_Write(0xB800 | (*data++));
     }
     RFM12_Ready();
-    
+
     /* transmit 2 dummy bytes to avoid that last bytes of real payload don't */
     /* get transmitted properly (due to transmitter disabled to early) */
     RFM12_Write(0xB800);
     RFM12_Ready();
     RFM12_Write(0xB800);
     RFM12_Ready();
-    
+
     /* disable TX */
     RFM12_Write(0x8208);
 }
@@ -335,28 +343,29 @@ void RFM12_TxData(uint8 *data, uint8 length)
 /* length: number of bytes to be received                                    */
 /*                                                                           */
 /* Return:  none                                                             */
+
 /*****************************************************************************/
 void RFM12_RxData(uint8 *data, uint8 length)
 {
     uint8 i;
-    
+
     /* enable RX */
     RFM12_Write(0x82C8);
-    
+
     /* set FIFO mode */
     RFM12_Write(0xCA81);
-    
+
     /* enable FIFO */
     RFM12_Write(0xCA83);
-    
+
     RFM12_ClrSDI();
     //delay_us(3);
-    for (i=0; i < length; i++)
-    {    
+    for (i = 0; i < length; i++)
+    {
         RFM12_Ready();
-        *data++=RFM12_Write(0xB000);
+        *data++ = RFM12_Write(0xB000);
     }
-    
+
     /* disable RX */
     RFM12_Write(0x8208);
 }

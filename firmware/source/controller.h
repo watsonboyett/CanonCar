@@ -1,10 +1,3 @@
-/* 
- * File:   controller.h
- * Author: merlin
- *
- * Created on November 3, 2012, 6:47 PM
- */
-
 #ifndef CONTROLLER_H
 #define	CONTROLLER_H
 
@@ -18,5 +11,4 @@ void stick_update();
 void drive();
 
 
-#endif	/* CONTROLLER_H */
-
+#endif

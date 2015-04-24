@@ -24,8 +24,8 @@ _FOSC(FCKSM_CSECMD & OSCIOFNC_ON & IOL1WAY_OFF);
 // Disable watchdog timer
 _FWDT(FWDTEN_OFF);
 
-
-int main(void) {
+int main(void)
+{
 
     // initialize the brains
     clock_init();
@@ -42,11 +42,12 @@ int main(void) {
     // show that we're alive
     blink_init();
 
-    
+
     //stick_init();
 
     // the main loop
-    while (1) {
+    while (1)
+    {
         //drive();
 
         dio_test();
@@ -56,8 +57,10 @@ int main(void) {
 }
 
 
-int dev_id = 0;
-void trx() {
+uint8 dev_id = 0;
+
+void trx()
+{
 
     uint8 txbuf[] = {0, 0, 1, 0, 0, 0, 0, 1};
     uint8 rxbuf[8];
@@ -66,19 +69,25 @@ void trx() {
 
     // transmit message
     delay_ms(1000);
-    if (dev_id == 0) {
+    if (dev_id == 0)
+    {
         RFM12_TxData(txbuf, sizeof (txbuf));
         blink_flip();
-    } else if (dev_id == 1) {
+    }
+    else if (dev_id == 1)
+    {
         RFM12_RxData(rxbuf, 8);
 
-        for (i = 0; i < 8; i++) {
-            if (txbuf[i] != rxbuf[i]) {
+        for (i = 0; i < 8; i++)
+        {
+            if (txbuf[i] != rxbuf[i])
+            {
                 rx_good = 0;
                 break;
             }
         }
-        if (rx_good) {
+        if (rx_good)
+        {
             blink_flip();
         }
     }

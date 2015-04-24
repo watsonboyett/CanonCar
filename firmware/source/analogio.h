@@ -1,7 +1,7 @@
-
-
 #ifndef ANALOGIN_H
 #define ANALOGIN_H
+
+#include "types.h"
 
 #define A0_mode _TRISA0
 #define A0_read _RA0
@@ -36,16 +36,15 @@
 #define A7_write _LATB4
 
 
-void aio_init( );
-void adc_init( );
-void dma_init( );
+void aio_init();
+void adc_init();
+void dma_init();
 
 #define ADC_NCHAN 8
 #define ADC_RES 4096
 
 
 // read analog sample from given channel
-float aio_read(unsigned int chan);
+float aio_read(uint8 chan);
 
 #endif
-

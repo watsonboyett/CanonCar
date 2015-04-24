@@ -9,9 +9,8 @@
 #include "analogio.h"
 #include "motor.h"
 
-
-
-struct stick {
+struct stick
+{
     float val;
     float mid;
     float low;
@@ -25,7 +24,8 @@ struct stick stick_x;
 struct stick stick_y;
 struct stick stick_z;
 
-void stick_init() {
+void stick_init()
+{
     // wait for ADCs to buffer, then get nominal stick position
     delay_ms(1000);
 
@@ -44,13 +44,15 @@ void stick_init() {
     stick_z.mid = aio_read(STICK_Z_CHAN);
 }
 
-void stick_update() {
+void stick_update()
+{
     stick_x.val = aio_read(STICK_X_CHAN);
     stick_y.val = aio_read(STICK_Y_CHAN);
     stick_z.val = aio_read(STICK_Z_CHAN);
 }
 
-void drive() {
+void drive()
+{
 
     unsigned int x_dir = 0;
     float x_volt = 0;
@@ -60,16 +62,22 @@ void drive() {
     stick_update();
 
     x_volt = stick_x.val - stick_x.mid;
-    if (x_volt > stick_x.thr_high) {
+    if (x_volt > stick_x.thr_high)
+    {
         x_dir = 0;
         x_volt = fabs(x_volt)*2;
-    } else if (x_volt < -stick_x.thr_low) {
+    }
+    else if (x_volt < -stick_x.thr_low)
+    {
         x_dir = 1;
         x_volt = fabs(x_volt)*2;
-    } else {
+    }
+    else
+    {
         x_volt = 0;
     }
-    if (x_volt > 1) {
+    if (x_volt > 1)
+    {
         x_volt = 1.0;
     }
     motor_set_dir(1, 2, x_dir);
@@ -77,16 +85,22 @@ void drive() {
 
 
     y_volt = stick_y.val - stick_y.mid;
-    if (y_volt > stick_y.thr_low) {
+    if (y_volt > stick_y.thr_low)
+    {
         y_dir = 0;
         y_volt = fabs(y_volt)*2;
-    } else if (y_volt < -stick_y.thr_high) {
+    }
+    else if (y_volt < -stick_y.thr_high)
+    {
         y_dir = 1;
         y_volt = fabs(y_volt)*2;
-    } else {
+    }
+    else
+    {
         y_volt = 0;
     }
-    if (y_volt > 1) {
+    if (y_volt > 1)
+    {
         y_volt = 1.0;
     }
     motor_set_dir(1, 1, y_dir);

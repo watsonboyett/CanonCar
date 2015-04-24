@@ -32,7 +32,7 @@ typedef unsigned char bool;
 typedef signed char sint8;
 typedef signed int sint16;
 typedef signed long sint32;
-typedef unsigned char  uint8;
+typedef unsigned char uint8;
 typedef unsigned int uint16;
 typedef unsigned long uint32;
 
@@ -52,4 +52,4 @@ typedef unsigned long uint32;
 #endif
 
 
-#endif /*_TYPES_H */
+#endif

@@ -8,10 +8,9 @@
 
 #include "util.h"
 
-
-
 /* set clock parameters */
-void clock_init() {
+void clock_init()
+{
     // Configure PLL prescaler, PLL postscaler, PLL divisor
     PLLFBD = 41; // M = 43
     CLKDIVbits.PLLPOST = 0; // N1 = 2
@@ -22,12 +21,14 @@ void clock_init() {
     // Wait for Clock switch to occur
     while (OSCCONbits.COSC != 0b001);
     // Wait for PLL to lock
-    while (OSCCONbits.LOCK != 1) {
+    while (OSCCONbits.LOCK != 1)
+    {
     };
 }
 
 /* disable all peripherals */
-void periph_killall() {
+void periph_killall()
+{
     // reset all port pins directions
     TRISA = 0b0000000000000000;
     TRISB = 0b0000000000000000;
@@ -58,54 +59,58 @@ void periph_killall() {
     PPSLock;
 }
 
-
-void delay_ns(unsigned long count) {
-    count = count * Fcy * 1e-9;
+void delay_ns(uint32 count)
+{
+    count = count * (Fcy * 1e-9);
     delay(count);
 }
 
-void delay_us(unsigned long count) {
-    count = count * Fcy * 1e-6;
+void delay_us(uint32 count)
+{
+    count = count * (Fcy * 1e-6);
     delay(count);
 }
 
-void delay_ms(unsigned long count) {
-    count = count * Fcy * 1e-3;
+void delay_ms(uint32 count)
+{
+    count = count * (Fcy * 1e-3);
     delay(count);
 }
 
-void delay(unsigned long count) {
+void delay(uint32 count)
+{
     count = count / 11;
-    while (count > 0) {
+    while (count > 0)
+    {
         count--;
     }
 }
 
 /* force toggle heartbeat led */
-void blink_flip() {
+void blink_flip()
+{
     HEART_LAT = !HEART_LAT;
 }
 
 /* Enable HeartBeat Timer Interrupt and set its Priority to level 6 (lowest) */
-void blink_init() {
+void blink_init()
+{
     HEART_TRIS = 0;
 
-    unsigned int match_value = (Fcy / 256) * 300e-3;
+    uint16 match_value = (Fcy / 256) * 300e-3;
 
     ConfigIntTimer1(T1_INT_PRIOR_6 & T1_INT_ON);
     WriteTimer1(0);
     OpenTimer1(T1_ON & T1_GATE_OFF & T1_IDLE_STOP &
-            T1_PS_1_256 & T1_SYNC_EXT_OFF &
-            T1_SOURCE_INT, match_value);
+               T1_PS_1_256 & T1_SYNC_EXT_OFF &
+               T1_SOURCE_INT, match_value);
 }
 
-void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
-    // toggle heartbeat LED
+void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
+{
     HEART_LAT = !HEART_LAT;
-
-    // reset timer and clear Timer interrupt flag
     WriteTimer1(0);
-    _T1IF = 0; 
+    _T1IF = 0;
 }
 
 

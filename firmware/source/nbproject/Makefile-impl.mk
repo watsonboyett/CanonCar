@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=StickControl.X
+PROJECTNAME=source
 
 # Active Configuration
 DEFAULTCONF=default

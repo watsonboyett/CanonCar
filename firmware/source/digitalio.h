@@ -1,13 +1,7 @@
-/* 
- * File:   digitalio.h
- * Author: merlin
- *
- * Created on October 28, 2012, 9:20 PM
- */
-
 #ifndef DIGITALIO_H
 #define	DIGITALIO_H
 
+#include "types.h"
 
 // DIO chip select pin
 #define DIO_CS_TRIS _TRISB12
@@ -36,9 +30,8 @@
 
 
 void dio_init();
-void dio_write(unsigned char, unsigned char);
-unsigned char dio_read(unsigned char reg_addr);
-unsigned char dio_test();
+void dio_write(uint8 reg_addr, uint8 data);
+uint8 dio_read(uint8 reg_addr);
+uint8 dio_test();
 
-#endif	/* DIGITALIO_H */
-
+#endif
