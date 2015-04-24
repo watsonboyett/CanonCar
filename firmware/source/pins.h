@@ -4,7 +4,6 @@
 #include "common.h"
 
 typedef volatile uint16_t * RegAddr_t;
-//RegAddr_t test = &(PORTA);
 
 typedef enum {
     Internal,

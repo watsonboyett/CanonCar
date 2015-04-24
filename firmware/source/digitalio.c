@@ -55,21 +55,28 @@ uint8_t digitalio_read(uint8_t reg_addr)
     return data;
 }
 
-uint8_t digitalio_test()
+bool digitalio_test()
 {
+    bool success = true;
 
-    digitalio_write(DIO_ADDR_IODIR, 0x00);
+    uint8_t write1 = 0x00;
+    digitalio_write(DIO_ADDR_IODIR, write1);
     delay_ms(100);
     uint8_t read1 = digitalio_read(DIO_ADDR_IODIR);
+    success &= (read1 == write1);
 
-    digitalio_write(DIO_ADDR_GPIO, 0x69);
+    uint8_t write2 = 0x69;
+    digitalio_write(DIO_ADDR_GPIO, write2);
     delay_ms(100);
     uint8_t read2 = digitalio_read(DIO_ADDR_GPIO);
+    success &= (read2 == write2);
 
-    digitalio_write(DIO_ADDR_OLAT, 0xA5);
+    uint8_t write3 = 0xA5;
+    digitalio_write(DIO_ADDR_OLAT, write3);
     delay_ms(100);
     uint8_t read3 = digitalio_read(DIO_ADDR_OLAT);
+    success &= (read3 == write3);
 
     Nop();
-    return 0;
+    return success;
 }

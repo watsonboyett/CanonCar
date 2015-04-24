@@ -33,6 +33,6 @@ void digitalio_pin_mode(PinInfo_s * pin, PinMode_e mode);
 void digitalio_write(uint8_t reg_addr, uint8_t data);
 uint8_t digitalio_read(uint8_t reg_addr);
 
-uint8_t digitalio_test();
+bool digitalio_test();
 
 #endif
