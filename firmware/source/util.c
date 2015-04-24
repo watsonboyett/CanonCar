@@ -1,8 +1,5 @@
 
-
 #include <p24Hxxxx.h>
-//#include <Generic.h>
-//#include <ports.h>
 #include <pps.h>
 #include <timer.h>
 
@@ -27,7 +24,7 @@ void clock_init()
 }
 
 /* disable all peripherals */
-void periph_killall()
+void periph_disable_all()
 {
     // reset all port pins directions
     TRISA = 0b0000000000000000;
@@ -87,15 +84,15 @@ void delay(uint32_t count)
 }
 
 /* force toggle heartbeat led */
-void blink_flip()
+void heartbeat_toggle()
 {
-    HEART_LAT = !HEART_LAT;
+    HEARTBEAT_LAT = !HEARTBEAT_LAT;
 }
 
 /* Enable HeartBeat Timer Interrupt and set its Priority to level 6 (lowest) */
-void blink_init()
+void heartbeat_init()
 {
-    HEART_TRIS = 0;
+    HEARTBEAT_TRIS = 0;
 
     uint16_t match_value = (Fcy / 256) * 300e-3;
 
@@ -108,7 +105,7 @@ void blink_init()
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 {
-    HEART_LAT = !HEART_LAT;
+    HEARTBEAT_LAT = !HEARTBEAT_LAT;
     WriteTimer1(0);
     _T1IF = 0;
 }

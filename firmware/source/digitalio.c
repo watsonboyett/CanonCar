@@ -1,7 +1,5 @@
 
 #include <p24Hxxxx.h>
-//#include <Generic.h>
-//#include <ports.h>
 #include <spi.h>
 
 #include "digitalio.h"

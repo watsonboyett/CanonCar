@@ -1,20 +1,14 @@
 
-// system functions
 #include <p24Hxxxx.h>
-//#include <stdio.h>
 
-// low level functions
+#include "common.h"
 #include "util.h"
 #include "analogio.h"
 #include "spi_util.h"
 #include "digitalio.h"
 #include "rfm12.h"
 #include "motor.h"
-
-// high level functions
 #include "controller.h"
-//#include "driver.h"
-//#include "comm.h"
 
 
 // Select Internal FRC at POR
@@ -26,30 +20,20 @@ _FWDT(FWDTEN_OFF);
 
 int main(void)
 {
-
-    // initialize the brains
+    // initialize all peripherals/modules
     clock_init();
-    periph_killall();
-
-    // initialize the peripherals
+    periph_disable_all();
     aio_init();
     spi_init();
     dio_init();
     RFM12_init();
     motor_init();
-
-
-    // show that we're alive
-    blink_init();
-
-
     //stick_init();
-
-    // the main loop
+    heartbeat_init();
+    
     while (1)
     {
         //drive();
-
         dio_test();
     }
 
@@ -72,7 +56,7 @@ void trx()
     if (dev_id == 0)
     {
         RFM12_TxData(txbuf, sizeof (txbuf));
-        blink_flip();
+        heartbeat_toggle();
     }
     else if (dev_id == 1)
     {
@@ -88,7 +72,7 @@ void trx()
         }
         if (rx_good)
         {
-            blink_flip();
+            heartbeat_toggle();
         }
     }
 

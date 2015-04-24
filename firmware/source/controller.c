@@ -1,9 +1,6 @@
 
 #include <p24Hxxxx.h>
 
-//#include <stdio.h>
-#include <math.h>
-
 #include "controller.h"
 #include "util.h"
 #include "analogio.h"

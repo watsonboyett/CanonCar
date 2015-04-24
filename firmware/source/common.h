@@ -37,7 +37,7 @@ extern "C" {
 #define bit_read(value, bit) (((value) >> (bit)) & 0x01)
 #define bit_set(value, bit) ((value) |= (1UL << (bit)))
 #define bit_clear(value, bit) ((value) &= ~(1UL << (bit)))
-#define bit_write(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
+#define bit_write(value, bit, bitvalue) (bitvalue ? bit_set(value, bit) : bit_clear(value, bit))
 #define byte_low(w) ((uint8_t) ((w) & 0xff))
 #define byte_high(w) ((uint8_t) ((w) >> 8))
 
@@ -46,4 +46,3 @@ extern "C" {
 #endif
 
 #endif	/* COMMON_H */
-
