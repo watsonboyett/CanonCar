@@ -57,14 +57,14 @@ int main(void)
 }
 
 
-uint8 dev_id = 0;
+uint8_t dev_id = 0;
 
 void trx()
 {
 
-    uint8 txbuf[] = {0, 0, 1, 0, 0, 0, 0, 1};
-    uint8 rxbuf[8];
-    uint8 i;
+    uint8_t txbuf[] = {0, 0, 1, 0, 0, 0, 0, 1};
+    uint8_t rxbuf[8];
+    uint8_t i;
     bool rx_good = 1;
 
     // transmit message

@@ -1,7 +1,7 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-#include "types.h"
+#include "common.h"
 
 #define D1C1_VREF _RB5
 #define D1C1_TRIS _TRISB5
@@ -59,9 +59,9 @@ void motor_set_current_level(MotorDriver_e driver, DriverChannel_e chan, MotorCu
 void motor_set_speed(MotorDriver_e driver, DriverChannel_e chan, float val);
 
 
-void spi_write_bit(uint8 bit_index, bool bit_value);
-void spi_write_bits(uint8 bit_mask, uint8 bit_values);
-bool spi_read_bit(uint8 bit_index);
-uint8 spi_read_bits(uint8 bit_mask);
+void spi_write_bit(uint8_t bit_index, bool bit_value);
+void spi_write_bits(uint8_t bit_mask, uint8_t bit_values);
+bool spi_read_bit(uint8_t bit_index);
+uint8_t spi_read_bits(uint8_t bit_mask);
 
 #endif

@@ -59,25 +59,25 @@ void periph_killall()
     PPSLock;
 }
 
-void delay_ns(uint32 count)
+void delay_ns(uint32_t count)
 {
     count = count * (Fcy * 1e-9);
     delay(count);
 }
 
-void delay_us(uint32 count)
+void delay_us(uint32_t count)
 {
     count = count * (Fcy * 1e-6);
     delay(count);
 }
 
-void delay_ms(uint32 count)
+void delay_ms(uint32_t count)
 {
     count = count * (Fcy * 1e-3);
     delay(count);
 }
 
-void delay(uint32 count)
+void delay(uint32_t count)
 {
     count = count / 11;
     while (count > 0)
@@ -97,7 +97,7 @@ void blink_init()
 {
     HEART_TRIS = 0;
 
-    uint16 match_value = (Fcy / 256) * 300e-3;
+    uint16_t match_value = (Fcy / 256) * 300e-3;
 
     ConfigIntTimer1(T1_INT_PRIOR_6 & T1_INT_ON);
     WriteTimer1(0);
@@ -112,6 +112,3 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
     WriteTimer1(0);
     _T1IF = 0;
 }
-
-
-

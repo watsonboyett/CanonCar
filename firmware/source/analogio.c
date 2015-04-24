@@ -15,9 +15,9 @@ void aio_init()
 
 void adc_init()
 {
-    uint16 config1, config2, config3, config4;
-    uint16 configport_l, configport_h;
-    uint16 configscan_l, configscan_h;
+    uint16_t config1, config2, config3, config4;
+    uint16_t configport_l, configport_h;
+    uint16_t configscan_l, configscan_h;
 
 
     config1 = ADC_MODULE_ON & ADC_IDLE_STOP & ADC_ADDMABM_ORDER & ADC_AD12B_12BIT &
@@ -48,7 +48,7 @@ int ADC_buf[ADC_NCHAN] __attribute__((space(dma)));
 
 void dma_init()
 {
-    uint16 config, irq, sta_address, pad_address, count;
+    uint16_t config, irq, sta_address, pad_address, count;
 
     config = DMA0_MODULE_ON & DMA0_SIZE_WORD & PERIPHERAL_TO_DMA0 & DMA0_INTERRUPT_BLOCK &
             DMA0_NORMAL & DMA0_REGISTER_POST_INCREMENT & DMA0_CONTINUOUS;
@@ -62,12 +62,7 @@ void dma_init()
     OpenDMA0(config, irq, sta_address, 0, pad_address, count);
 }
 
-float aio_read(uint8 chan)
+float aio_read(uint8_t chan)
 {
     return (float) ADC_buf[chan] / (float) ADC_RES;
 }
-
-
-
-
-

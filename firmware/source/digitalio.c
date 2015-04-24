@@ -20,7 +20,7 @@ void dio_init()
 }
 
 /* write sequence for DIO SPI device */
-void dio_write(uint8 reg_addr, uint8 data)
+void dio_write(uint8_t reg_addr, uint8_t data)
 {
     DIO_CS = 0;
 
@@ -35,7 +35,7 @@ void dio_write(uint8 reg_addr, uint8 data)
 }
 
 /* read sequence for DIO SPI device */
-uint8 dio_read(uint8 reg_addr)
+uint8_t dio_read(uint8_t reg_addr)
 {
     DIO_CS = 0;
 
@@ -51,26 +51,25 @@ uint8 dio_read(uint8 reg_addr)
     DIO_CS = 1;
 
     // read from receive buffer
-    uint8 data = spi_read();
+    uint8_t data = spi_read();
     return data;
 }
 
-uint8 dio_test()
+uint8_t dio_test()
 {
 
     dio_write(DIO_ADDR_IODIR, 0x00);
     delay_ms(100);
-    uint8 read1 = dio_read(DIO_ADDR_IODIR);
+    uint8_t read1 = dio_read(DIO_ADDR_IODIR);
 
     dio_write(DIO_ADDR_GPIO, 0x69);
     delay_ms(100);
-    uint8 read2 = dio_read(DIO_ADDR_GPIO);
+    uint8_t read2 = dio_read(DIO_ADDR_GPIO);
 
     dio_write(DIO_ADDR_OLAT, 0xA5);
     delay_ms(100);
-    uint8 read3 = dio_read(DIO_ADDR_OLAT);
+    uint8_t read3 = dio_read(DIO_ADDR_OLAT);
 
     Nop();
     return 0;
 }
-

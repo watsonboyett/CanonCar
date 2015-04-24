@@ -76,10 +76,10 @@ void motor_set_mode(MotorDriver_e driver, MotorMode_e mode)
 }
 
 
-uint16 Driver1_Channel1_DC = 0;
-uint16 Driver1_Channel2_DC = 0;
-uint16 Driver2_Channel1_DC = 0;
-uint16 Driver2_Channel2_DC = 0;
+uint16_t Driver1_Channel1_DC = 0;
+uint16_t Driver1_Channel2_DC = 0;
+uint16_t Driver2_Channel1_DC = 0;
+uint16_t Driver2_Channel2_DC = 0;
 
 /* update motor control voltages (PWM) */
 void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
@@ -96,29 +96,29 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 /* set motor direction */
 void motor_set_dir(MotorDriver_e driver, DriverChannel_e channel, MotorDirection_e dir)
 {
-    uint8 port_bits = 0;
+    uint8_t port_bits = 0;
 
     switch (driver)
     {
     case Driver1:
         if (channel == Channel1 || Driver1_Mode == Stepper)
         {
-            port_bits |= 1 << D1C1_PHASE;
+            bit_set(port_bits, D1C1_PHASE);
         }
         else if (channel == Channel2 || Driver1_Mode == Stepper)
         {
-            port_bits |= 1 << D1C2_PHASE;
+            bit_set(port_bits, D1C2_PHASE);
         }
         break;
     case Driver2:
 
         if (channel == Channel1)
         {
-            port_bits |= 1 << D2C1_PHASE;
+            bit_set(port_bits, D2C1_PHASE);
         }
         else if (channel == Channel2)
         {
-            port_bits |= 1 << D2C2_PHASE;
+            bit_set(port_bits, D2C2_PHASE);
         }
         break;
     }
@@ -128,21 +128,21 @@ void motor_set_dir(MotorDriver_e driver, DriverChannel_e channel, MotorDirection
 
 void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, MotorCurrentOutput_e current)
 {
-    uint8 port_bits = 0;
-    uint8 port_values = 0;
+    uint8_t port_bits = 0;
+    uint8_t port_values = 0;
 
     // NOTE: current pins for both channels are wired together, so they cannot
     // be set independently
     switch (driver)
     {
     case Driver1:
-        port_bits |= 1 << D1Cx_Ix1;
-        port_bits |= 1 << D1Cx_Ix2;
+        bit_set(port_bits, D1Cx_Ix1);
+        bit_set(port_bits, D1Cx_Ix2);
         port_values |= current << D1Cx_Ix1;
         break;
     case Driver2:
-        port_bits |= 1 << D2Cx_Ix1;
-        port_bits |= 1 << D2Cx_Ix2;
+        bit_set(port_bits, D2Cx_Ix1);
+        bit_set(port_bits, D2Cx_Ix2);
         port_values |= current << D2Cx_Ix1;
         break;
     }
@@ -153,7 +153,7 @@ void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, Moto
 /* stop motor voltage/speed */
 void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
 {
-    uint16 buf = val * PWM_RES;
+    uint16_t buf = val * PWM_RES;
     // ensure output is clamped at max value
     if (buf > PWM_RES)
     {
@@ -200,4 +200,3 @@ void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
         }
     }
 }
-

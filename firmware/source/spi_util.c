@@ -16,10 +16,10 @@ void spi_init()
     PPSLock;
 
     // setup SPI configuration bits
-    uint16 cfg1 = MASTER_ENABLE_ON & SLAVE_ENABLE_OFF & ENABLE_SCK_PIN & ENABLE_SDO_PIN &
+    uint16_t cfg1 = MASTER_ENABLE_ON & SLAVE_ENABLE_OFF & ENABLE_SCK_PIN & ENABLE_SDO_PIN &
             SPI_MODE16_OFF & PRI_PRESCAL_4_1 & SEC_PRESCAL_8_1 &
             SPI_SMP_OFF & SPI_CKE_ON & CLK_POL_ACTIVE_HIGH;
-    uint16 cfg2 = FRAME_ENABLE_OFF & FRAME_SYNC_OUTPUT & FRAME_POL_ACTIVE_LOW &
+    uint16_t cfg2 = FRAME_ENABLE_OFF & FRAME_SYNC_OUTPUT & FRAME_POL_ACTIVE_LOW &
             FRAME_SYNC_EDGE_PRECEDE;
     SPI1CON1 = cfg1;
     SPI1CON2 = cfg2;
@@ -28,7 +28,7 @@ void spi_init()
 }
 
 /* send data to the SPI module (and block until success) */
-void spi_write(uint8 data)
+void spi_write(uint8_t data)
 {
     // load SPI transmit buffer
     SPI1BUF = data;
@@ -45,7 +45,7 @@ void spi_write(uint8 data)
 }
 
 /* send data to the SPI module (and block until success) */
-uint8 spi_read()
+uint8_t spi_read()
 {
     // block until SPI receive buffer is full
     while (!SPI1STATbits.SPIRBF)
@@ -53,15 +53,15 @@ uint8 spi_read()
         delay_us(1);
     }
     // return SPI receive buffer data
-    uint8 data = SPI1BUF;
+    uint8_t data = SPI1BUF;
     return data;
 }
 
-uint8 spi_clear_rx()
+uint8_t spi_clear_rx()
 {
     SPI1STATbits.SPIROV = 0;
     delay_us(1);
-    uint8 data = SPI1BUF;
+    uint8_t data = SPI1BUF;
     delay_us(1);
     SPI1STATbits.SPIROV = 0;
     delay_us(1);

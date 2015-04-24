@@ -36,10 +36,10 @@
 /* Return:  16 bit value read from RFM12 module                              */
 
 /*****************************************************************************/
-uint16 RFM12_Write(uint16 data)
+uint16_t RFM12_Write(uint16_t data)
 {
-    uint16 data_in = 0;
-    uint8 bit_i;
+    uint16_t data_in = 0;
+    uint8_t bit_i;
 
     /* set select RFM12 module */
     RFM12_ClrNSEL();
@@ -155,7 +155,7 @@ void RFM12_setup(void)
 /* Return:  none                                                             */
 
 /*****************************************************************************/
-void RFM12_SetBandwidth(uint8 bandwidth, uint8 gain, uint8 drssi)
+void RFM12_SetBandwidth(uint8_t bandwidth, uint8_t gain, uint8_t drssi)
 {
     RFM12_Write(0x9400 | ((bandwidth & 7) << 5) | ((gain & 3) << 3) | (drssi & 7));
 }
@@ -174,7 +174,7 @@ void RFM12_SetBandwidth(uint8 bandwidth, uint8 gain, uint8 drssi)
 /* Return:  none                                                             */
 
 /*****************************************************************************/
-void RFM12_SetFreq(uint16 freq)
+void RFM12_SetFreq(uint16_t freq)
 {
     /* 430.2400MHz */
     if (freq < 96)
@@ -201,7 +201,7 @@ void RFM12_SetFreq(uint16 freq)
 /* Return:  none                                                             */
 
 /*****************************************************************************/
-void RFM12_SetBaud(uint16 baud)
+void RFM12_SetBaud(uint16_t baud)
 {
     if (baud < 663)
     {
@@ -256,7 +256,7 @@ void RFM12_SetBaud(uint16 baud)
 /* Return:  none                                                             */
 
 /*****************************************************************************/
-void RFM12_SetPower(uint8 power, uint8 mod)
+void RFM12_SetPower(uint8_t power, uint8_t mod)
 {
     RFM12_Write(0x9800 | (power & 7) | ((mod & 15) << 4));
 }
@@ -292,9 +292,9 @@ void RFM12_Ready(void)
 /* Return:  none                                                             */
 
 /*****************************************************************************/
-void RFM12_TxData(uint8 *data, uint8 length)
+void RFM12_TxData(uint8_t *data, uint8_t length)
 {
-    uint8 i;
+    uint8_t i;
 
     /* enable TX */
     RFM12_Write(0x8238);
@@ -345,9 +345,9 @@ void RFM12_TxData(uint8 *data, uint8 length)
 /* Return:  none                                                             */
 
 /*****************************************************************************/
-void RFM12_RxData(uint8 *data, uint8 length)
+void RFM12_RxData(uint8_t *data, uint8_t length)
 {
-    uint8 i;
+    uint8_t i;
 
     /* enable RX */
     RFM12_Write(0x82C8);

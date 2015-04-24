@@ -1,7 +1,7 @@
 #ifndef ANALOGIN_H
 #define ANALOGIN_H
 
-#include "types.h"
+#include "common.h"
 
 #define A0_mode _TRISA0
 #define A0_read _RA0
@@ -45,6 +45,6 @@ void dma_init();
 
 
 // read analog sample from given channel
-float aio_read(uint8 chan);
+float aio_read(uint8_t chan);
 
 #endif

@@ -6,12 +6,12 @@
                    projectFiles="true">
       <itemPath>motor.h</itemPath>
       <itemPath>rfm12.h</itemPath>
-      <itemPath>types.h</itemPath>
       <itemPath>digitalio.h</itemPath>
       <itemPath>util.h</itemPath>
       <itemPath>spi_util.h</itemPath>
       <itemPath>analogio.h</itemPath>
       <itemPath>controller.h</itemPath>
+      <itemPath>common.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -97,7 +97,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.23</languageToolchainVersion>
-        <platform>4</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -159,6 +159,7 @@
         <property key="scalar-model" value="default"/>
       </C30>
       <C30-AR>
+        <property key="additional-options-chop-files" value="false"/>
       </C30-AR>
       <C30-AS>
         <property key="assembler-symbols" value=""/>

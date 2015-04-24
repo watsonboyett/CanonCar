@@ -24,7 +24,7 @@
 #define _RFM12_H
 
 /* common data type definitions */
-#include "types.h"
+#include "common.h"
 
 /* RFM12 configuration, to be created by the user */
 #include "rfm12conf.h"
@@ -53,16 +53,16 @@
 #define RFM12FREQ(freq)     ((freq-430.0)/0.0025)
 
 
-uint16 RFM12_Write(uint16 data);
+uint16_t RFM12_Write(uint16_t data);
 void RFM12_init(void);
 void RFM12_setup(void);
-void RFM12_SetBandwidth(uint8 bandwidth, uint8 gain, uint8 drssi);
-void RFM12_SetFreq(uint16 freq);
-void RFM12_SetBaud(uint16 baud);
-void RFM12_SetPower(uint8 power, uint8 mod);
+void RFM12_SetBandwidth(uint8_t bandwidth, uint8_t gain, uint8_t drssi);
+void RFM12_SetFreq(uint16_t freq);
+void RFM12_SetBaud(uint16_t baud);
+void RFM12_SetPower(uint8_t power, uint8_t mod);
 void RFM12_Ready(void);
-void RFM12_TxData(uint8 *data, uint8 length);
-void RFM12_RxData(uint8 *data, uint8 length);
+void RFM12_TxData(uint8_t *data, uint8_t length);
+void RFM12_RxData(uint8_t *data, uint8_t length);
 
 
 #endif /* #ifndef _RFM12_H */
