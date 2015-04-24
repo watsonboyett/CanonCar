@@ -1,7 +1,7 @@
-#ifndef ANALOGIN_H
-#define ANALOGIN_H
+#ifndef ANALOGIO_H
+#define ANALOGIO_H
 
-#include "common.h"
+#include "pins.h"
 
 #define A0_mode _TRISA0
 #define A0_read _RA0
@@ -36,15 +36,15 @@
 #define A7_write _LATB4
 
 
-void aio_init();
-void adc_init();
-void dma_init();
+//void adc_init();
+//void dma_init();
 
 #define ADC_NCHAN 8
 #define ADC_RES 4096
 
-
-// read analog sample from given channel
-float aio_read(uint8_t chan);
+void analogio_init();
+void analogio_pin_mode(PinInfo_s * pin, PinMode_e mode);
+float analogio_read(uint8_t chan);
+void analogio_write(uint8_t chan, float val);
 
 #endif

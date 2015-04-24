@@ -1,13 +1,10 @@
 
-#include <p24Hxxxx.h>
-#include <spi.h>
-
 #include "digitalio.h"
 #include "util.h"
 #include "spi_util.h"
 
 /* config sequence for DIO SPI device */
-void dio_init()
+void digitalio_init()
 {
     // set chip-select pin as output (and set it to idle)
     DIO_CS_TRIS = 0;
@@ -17,8 +14,13 @@ void dio_init()
     DIO_INT_TRIS = 1;
 }
 
+void digitalio_pin_mode(PinInfo_s * pin, PinMode_e mode)
+{
+
+}
+
 /* write sequence for DIO SPI device */
-void dio_write(uint8_t reg_addr, uint8_t data)
+void digitalio_write(uint8_t reg_addr, uint8_t data)
 {
     DIO_CS = 0;
 
@@ -33,7 +35,7 @@ void dio_write(uint8_t reg_addr, uint8_t data)
 }
 
 /* read sequence for DIO SPI device */
-uint8_t dio_read(uint8_t reg_addr)
+uint8_t digitalio_read(uint8_t reg_addr)
 {
     DIO_CS = 0;
 
@@ -53,20 +55,20 @@ uint8_t dio_read(uint8_t reg_addr)
     return data;
 }
 
-uint8_t dio_test()
+uint8_t digitalio_test()
 {
 
-    dio_write(DIO_ADDR_IODIR, 0x00);
+    digitalio_write(DIO_ADDR_IODIR, 0x00);
     delay_ms(100);
-    uint8_t read1 = dio_read(DIO_ADDR_IODIR);
+    uint8_t read1 = digitalio_read(DIO_ADDR_IODIR);
 
-    dio_write(DIO_ADDR_GPIO, 0x69);
+    digitalio_write(DIO_ADDR_GPIO, 0x69);
     delay_ms(100);
-    uint8_t read2 = dio_read(DIO_ADDR_GPIO);
+    uint8_t read2 = digitalio_read(DIO_ADDR_GPIO);
 
-    dio_write(DIO_ADDR_OLAT, 0xA5);
+    digitalio_write(DIO_ADDR_OLAT, 0xA5);
     delay_ms(100);
-    uint8_t read3 = dio_read(DIO_ADDR_OLAT);
+    uint8_t read3 = digitalio_read(DIO_ADDR_OLAT);
 
     Nop();
     return 0;

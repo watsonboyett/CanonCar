@@ -1,11 +1,8 @@
 
-#include <p24Hxxxx.h>
-
 #include "common.h"
 #include "util.h"
-#include "analogio.h"
+#include "io.h"
 #include "spi_util.h"
-#include "digitalio.h"
 #include "rfm12.h"
 #include "motor.h"
 #include "controller.h"
@@ -23,9 +20,8 @@ int main(void)
     // initialize all peripherals/modules
     clock_init();
     periph_disable_all();
-    aio_init();
     spi_init();
-    dio_init();
+    io_init();
     RFM12_init();
     motor_init();
     //stick_init();
@@ -34,7 +30,7 @@ int main(void)
     while (1)
     {
         //drive();
-        dio_test();
+        digitalio_test();
     }
 
     return 0;

@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#include <p24Hxxxx.h>
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>

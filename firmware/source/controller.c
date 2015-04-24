@@ -1,9 +1,7 @@
 
-#include <p24Hxxxx.h>
-
 #include "controller.h"
 #include "util.h"
-#include "analogio.h"
+#include "io.h"
 #include "motor.h"
 
 struct stick
@@ -28,24 +26,24 @@ void stick_init()
 
     stick_x.low = 0;
     stick_x.high = 4096;
-    stick_x.mid = aio_read(STICK_X_CHAN);
+    stick_x.mid = analog_read(STICK_X_CHAN);
     stick_x.thr_low = (stick_x.mid - stick_x.low) / 5;
     stick_x.thr_high = (stick_x.high - stick_x.mid) / 5;
 
     stick_y.low = 0;
     stick_y.high = 4096;
-    stick_y.mid = aio_read(STICK_Y_CHAN);
+    stick_y.mid = analog_read(STICK_Y_CHAN);
     stick_y.thr_low = (stick_y.mid - stick_y.low) / 5;
     stick_y.thr_high = (stick_y.high - stick_y.mid) / 5;
 
-    stick_z.mid = aio_read(STICK_Z_CHAN);
+    stick_z.mid = analog_read(STICK_Z_CHAN);
 }
 
 void stick_update()
 {
-    stick_x.val = aio_read(STICK_X_CHAN);
-    stick_y.val = aio_read(STICK_Y_CHAN);
-    stick_z.val = aio_read(STICK_Z_CHAN);
+    stick_x.val = analog_read(STICK_X_CHAN);
+    stick_y.val = analog_read(STICK_Y_CHAN);
+    stick_z.val = analog_read(STICK_Z_CHAN);
 }
 
 void drive()

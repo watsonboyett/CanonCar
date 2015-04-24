@@ -1,5 +1,4 @@
 
-#include <p24Hxxxx.h>
 #include <pps.h>
 #include <spi.h>
 

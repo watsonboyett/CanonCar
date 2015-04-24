@@ -1,7 +1,7 @@
 #ifndef DIGITALIO_H
 #define	DIGITALIO_H
 
-#include "common.h"
+#include "pins.h"
 
 // DIO chip select pin
 #define DIO_CS_TRIS _TRISB12
@@ -28,9 +28,11 @@
 #define DIO_ADDR_OLAT 0x0A
 
 
-void dio_init();
-void dio_write(uint8_t reg_addr, uint8_t data);
-uint8_t dio_read(uint8_t reg_addr);
-uint8_t dio_test();
+void digitalio_init();
+void digitalio_pin_mode(PinInfo_s * pin, PinMode_e mode);
+void digitalio_write(uint8_t reg_addr, uint8_t data);
+uint8_t digitalio_read(uint8_t reg_addr);
+
+uint8_t digitalio_test();
 
 #endif

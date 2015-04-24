@@ -1,16 +1,7 @@
 
-#include <p24Hxxxx.h>
 #include <adc.h>
 #include <dma.h>
-
 #include "analogio.h"
-#include "util.h"
-
-void aio_init()
-{
-    adc_init();
-    dma_init();
-}
 
 void adc_init()
 {
@@ -61,7 +52,23 @@ void dma_init()
     OpenDMA0(config, irq, sta_address, 0, pad_address, count);
 }
 
-float aio_read(uint8_t chan)
+void analogio_init()
+{
+    adc_init();
+    dma_init();
+}
+
+void analogio_pin_mode(PinInfo_s * pin, PinMode_e mode)
+{
+
+}
+
+float analogio_read(uint8_t chan)
 {
     return (float) ADC_buf[chan] / (float) ADC_RES;
+}
+
+void analogio_write(uint8_t chan, float val)
+{
+    
 }
