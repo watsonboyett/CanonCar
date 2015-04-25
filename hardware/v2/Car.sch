@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.1.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -11210,9 +11210,9 @@ Source: DCJ0303.pdf</description>
 <wire x1="-78.74" y1="76.2" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="63.5" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="BRAINS" gate="G$1" pin="PGD1/RB0/CN4"/>
-<wire x1="-78.74" y1="76.2" x2="-78.74" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="-78.74" y1="53.34" x2="-106.68" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="ICD" gate="G$1" pin="5"/>
+<pinref part="ICD" gate="G$1" pin="4"/>
+<wire x1="-106.68" y1="55.88" x2="-78.74" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-78.74" y1="55.88" x2="-78.74" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -11221,9 +11221,9 @@ Source: DCJ0303.pdf</description>
 <wire x1="12.7" y1="60.96" x2="12.7" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="78.74" x2="-81.28" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="BRAINS" gate="G$1" pin="PGC1/RB1/CN5"/>
-<wire x1="-81.28" y1="78.74" x2="-81.28" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="55.88" x2="-106.68" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="ICD" gate="G$1" pin="4"/>
+<wire x1="-81.28" y1="78.74" x2="-81.28" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="ICD" gate="G$1" pin="5"/>
+<wire x1="-81.28" y1="53.34" x2="-106.68" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$30" class="0">
