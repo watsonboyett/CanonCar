@@ -5,8 +5,7 @@
 extern "C" {
 #endif
 
-#include <p24Hxxxx.h>
-
+#include <xc.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
@@ -47,4 +46,4 @@ extern "C" {
 }
 #endif
 
-#endif	/* COMMON_H */
+#endif

@@ -8,6 +8,7 @@
 #include "controller.h"
 
 
+// TODO: use "#pragma config ..." for config bits
 // Select Internal FRC at POR
 _FOSCSEL(FNOSC_FRCPLL);
 // Enable Clock Switching and Configure
@@ -28,11 +29,12 @@ int main(void)
 
     //stick_init();
 
+
     pin_mode(A1, Digital_Out);
     pin_mode(A6, Digital_In);
     pin_mode(D0, Digital_Out);
     pin_mode(D7, Digital_In);
-    
+
     while (1)
     {
         bool val2 = digital_read(A6);
@@ -40,7 +42,7 @@ int main(void)
 
         bool val1 = digital_read(D7);
         digital_write(D0, !val1);
-        
+
         delay_ms(1);
     }
 

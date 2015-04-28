@@ -23,14 +23,14 @@ PinInfo_s Pin_RB13 = {.location = Internal, .tris = &TRISB, .port = &PORTB, .lat
 PinInfo_s Pin_RB14 = {.location = Internal, .tris = &TRISB, .port = &PORTB, .latch = &LATB, .bit_pos = 14, .mode = Digital_Out};
 PinInfo_s Pin_RB15 = {.location = Internal, .tris = &TRISB, .port = &PORTB, .latch = &LATB, .bit_pos = 15, .mode = Digital_Out};
 
-PinInfo_s Pin_SPI_D0 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D1 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D2 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D3 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D4 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D5 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D6 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6, .mode = Digital_Out};
-PinInfo_s Pin_SPI_D7 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7, .mode = Digital_Out};
+PinInfo_s Pin_SPI_D0 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0, .mode = Digital_In};
+PinInfo_s Pin_SPI_D1 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1, .mode = Digital_In};
+PinInfo_s Pin_SPI_D2 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2, .mode = Digital_In};
+PinInfo_s Pin_SPI_D3 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3, .mode = Digital_In};
+PinInfo_s Pin_SPI_D4 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4, .mode = Digital_In};
+PinInfo_s Pin_SPI_D5 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5, .mode = Digital_In};
+PinInfo_s Pin_SPI_D6 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6, .mode = Digital_In};
+PinInfo_s Pin_SPI_D7 = {.location = External, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7, .mode = Digital_In};
 
 PinInfo_s * pin_array[18] = {
     &Pin_RA0,

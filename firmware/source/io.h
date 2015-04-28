@@ -7,13 +7,13 @@
 
 void io_init();
 
-void pin_mode(PinName_e pin, PinMode_e mode);
+void pin_mode(const PinName_e pin, const PinMode_e mode);
 
-bool digital_read(PinName_e pin);
-void digital_write(PinName_e pin, bool value);
+bool digital_read(const PinName_e pin);
+void digital_write(const PinName_e pin, const bool value);
 
-int analog_read(PinName_e pin);
-void analog_write(PinName_e pin, int value);
+int analog_read(const PinName_e pin);
+void analog_write(const PinName_e pin, const int value);
 void analog_reference(uint8_t mode);
 
 #endif

@@ -3,7 +3,6 @@
 
 #include "pins.h"
 
-
 #define ADC_NCHAN 8
 #define ADC_RES 4096
 

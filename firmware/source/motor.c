@@ -1,9 +1,36 @@
 
 #include <pps.h>
 #include <timer.h>
-
 #include "motor.h"
 #include "util.h"
+
+#define D1C1_VREF _RB5
+#define D1C1_TRIS _TRISB5
+#define D1C2_VREF _RB6
+#define D1C2_TRIS _TRISB6
+
+#define D1C1_PHASE 0
+#define D1C2_PHASE 1
+#define D1Cx_Ix1 2
+#define D1Cx_Ix2 3
+
+#define D2C1_VREF _RB7
+#define D2C1_TRIS _TRISB7
+#define D2C2_VREF _RB8
+#define D2C2_TRIS _TRISB8
+
+#define D2C1_PHASE 4
+#define D2C2_PHASE 5
+#define D2Cx_Ix1 6
+#define D2Cx_Ix2 7
+
+#define PWM_RES 4096
+
+void spi_write_bit(uint8_t bit_index, bool bit_value);
+void spi_write_bits(uint8_t bit_mask, uint8_t bit_values);
+bool spi_read_bit(uint8_t bit_index);
+uint8_t spi_read_bits(uint8_t bit_mask);
+
 
 /* initialize motor pins and modules */
 void motor_init()

@@ -7,7 +7,7 @@ void io_init()
     digitalio_init();
 }
 
-void pin_mode(PinName_e pin, PinMode_e mode)
+void pin_mode(const PinName_e pin, const PinMode_e mode)
 {
     PinInfo_s * pin_info = get_pin_info(pin);
 
@@ -22,37 +22,33 @@ void pin_mode(PinName_e pin, PinMode_e mode)
 }
 
 
-bool digital_read(PinName_e pin)
+bool digital_read(const PinName_e pin)
 {
     PinInfo_s * pin_info = get_pin_info(pin);
-
     return digitalio_read(pin_info);
 }
 
-void digital_write(PinName_e pin, bool value)
+void digital_write(const PinName_e pin, const bool value)
 {
     PinInfo_s * pin_info = get_pin_info(pin);
-
     digitalio_write(pin_info, value);
 }
 
 
-int analog_read(PinName_e pin)
+int analog_read(const PinName_e pin)
 {
     return 0;
+}
+
+void analog_write(const PinName_e pin, int value)
+{
+
 }
 
 void analog_reference(uint8_t mode)
 {
 
 }
-
-void analog_write(PinName_e pin, int value)
-{
-
-}
-
-
 
     /*
         uint8_t bit = digitalPinToBitMask(pin);

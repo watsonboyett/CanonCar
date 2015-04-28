@@ -3,7 +3,7 @@
 
 #include "common.h"
 
-typedef volatile uint16_t * RegAddr_t;
+typedef volatile uint16_t * const RegAddr_t;
 
 typedef enum {
     Internal,
@@ -42,11 +42,11 @@ typedef enum {
 
 typedef struct {
     PinMode_e mode;
-    PortLocation_e location;
+    const PortLocation_e location;
     RegAddr_t tris;     // pin direction (input/output)
     RegAddr_t port;     // read from port (what the pin sees)
     RegAddr_t latch;    // write to latch (what the pin wants)
-    uint8_t bit_pos;
+    const uint8_t bit_pos;
 } PinInfo_s;
 
 PinInfo_s * get_pin_info(PinName_e pin);

@@ -4,14 +4,39 @@
 #include "spi_util.h"
 
 
-bool digitalio_read_internal(RegAddr_t reg_addr, uint8_t bit_pos);
-void digitalio_write_internal(RegAddr_t reg_addr, uint8_t bit_pos, bool val);
+bool digitalio_read_internal(RegAddr_t reg_addr, const uint8_t bit_pos);
+void digitalio_write_internal(RegAddr_t reg_addr, const uint8_t bit_pos, const bool val);
 
-bool digitalio_read_external(uint8_t reg_addr, uint8_t bit_pos);
-void digitalio_write_external(uint8_t reg_addr, uint8_t bit_pos, bool val);
 
-uint8_t digitalio_read_spi_register(uint8_t reg_addr);
-void digitalio_write_spi_register(uint8_t reg_addr, uint8_t value);
+// SPI-DIO chip select pin
+#define DIO_CS_TRIS _TRISB12
+#define DIO_CS _RB12
+// SPI-DIO interrupt pin
+#define DIO_INT_TRIS _TRISB13
+#define DIO_INT _RB13
+
+// SPI-DIO control words: device header + addr + R/W flag
+#define DIO_CTRL_READ 0b01000001
+#define DIO_CTRL_WRITE 0b01000000
+
+// SPI-DIO register addresses
+#define DIO_ADDR_IODIR 0x00
+#define DIO_ADDR_IPOL 0x01
+#define DIO_ADDR_GPINTEN 0x02
+#define DIO_ADDR_DEFVAL 0x03
+#define DIO_ADDR_INTCON 0x04
+#define DIO_ADDR_IOCON 0x05
+#define DIO_ADDR_GPPU 0x06
+#define DIO_ADDR_INTF 0x07
+#define DIO_ADDR_INTCAP 0x08
+#define DIO_ADDR_GPIO 0x09
+#define DIO_ADDR_OLAT 0x0A
+
+bool digitalio_read_external(const uint8_t reg_addr, const uint8_t bit_pos);
+void digitalio_write_external(const uint8_t reg_addr, const uint8_t bit_pos, const bool val);
+
+uint8_t digitalio_read_spi_register(const uint8_t reg_addr);
+void digitalio_write_spi_register(const uint8_t reg_addr, const uint8_t value);
 
 /* config sequence for DIO SPI device */
 void digitalio_init()
@@ -82,7 +107,7 @@ bool digitalio_read(PinInfo_s * pin)
     return value;
 }
 
-void digitalio_write(PinInfo_s * pin, bool value)
+void digitalio_write(PinInfo_s * pin, const bool value)
 {
     if (pin->mode != Digital_Out)
     {
@@ -99,7 +124,7 @@ void digitalio_write(PinInfo_s * pin, bool value)
     }
 }
 
-void digitalio_write_internal(RegAddr_t reg_addr, uint8_t bit_pos, bool val)
+void digitalio_write_internal(RegAddr_t reg_addr, const uint8_t bit_pos, const bool val)
 {
     uint16_t latch = *(reg_addr);
     if (val)
@@ -113,16 +138,15 @@ void digitalio_write_internal(RegAddr_t reg_addr, uint8_t bit_pos, bool val)
     *(reg_addr) = latch;
 }
 
-bool digitalio_read_internal(RegAddr_t reg_addr, uint8_t bit_pos)
+bool digitalio_read_internal(RegAddr_t reg_addr, const uint8_t bit_pos)
 {
     uint16_t port = *(reg_addr);
     bool val = bit_read(port, bit_pos);
     return val;
 }
 
-void digitalio_write_external(uint8_t reg_addr, uint8_t bit_pos, bool val)
+void digitalio_write_external(const uint8_t reg_addr, const uint8_t bit_pos, const bool val)
 {
-
     uint8_t latch = digitalio_read_spi_register(DIO_ADDR_OLAT);
     if (val)
     {
@@ -136,7 +160,7 @@ void digitalio_write_external(uint8_t reg_addr, uint8_t bit_pos, bool val)
     delay_us(1);
 }
 
-bool digitalio_read_external(uint8_t reg_addr, uint8_t bit_pos)
+bool digitalio_read_external(const uint8_t reg_addr, const uint8_t bit_pos)
 {
     // NOTE: first read gives incorrect values, second read gives correct values
     // (not sure why...)
@@ -147,7 +171,7 @@ bool digitalio_read_external(uint8_t reg_addr, uint8_t bit_pos)
 }
 
 /* write sequence for DIO SPI device */
-void digitalio_write_spi_register(uint8_t reg_addr, uint8_t data)
+void digitalio_write_spi_register(const uint8_t reg_addr, const uint8_t data)
 {
     DIO_CS = 0;
     delay_ns(100);
@@ -164,7 +188,7 @@ void digitalio_write_spi_register(uint8_t reg_addr, uint8_t data)
 }
 
 /* read sequence for DIO SPI device */
-uint8_t digitalio_read_spi_register(uint8_t reg_addr)
+uint8_t digitalio_read_spi_register(const uint8_t reg_addr)
 {
     DIO_CS = 0;
     delay_ns(100);
