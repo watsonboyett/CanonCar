@@ -8,10 +8,12 @@
 void io_init();
 
 void pin_mode(PinName_e pin, PinMode_e mode);
+
+bool digital_read(PinName_e pin);
 void digital_write(PinName_e pin, bool value);
-int digital_read(PinName_e pin);
+
 int analog_read(PinName_e pin);
-void analog_reference(uint8_t mode);
 void analog_write(PinName_e pin, int value);
+void analog_reference(uint8_t mode);
 
 #endif

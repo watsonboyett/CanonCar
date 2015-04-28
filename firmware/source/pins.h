@@ -41,11 +41,12 @@ typedef enum {
 } PinName_e;
 
 typedef struct {
-    PortLocation_e location;
-    RegAddr_t port;
-    RegAddr_t tris;
-    uint8_t bit_pos;
     PinMode_e mode;
+    PortLocation_e location;
+    RegAddr_t tris;     // pin direction (input/output)
+    RegAddr_t port;     // read from port (what the pin sees)
+    RegAddr_t latch;    // write to latch (what the pin wants)
+    uint8_t bit_pos;
 } PinInfo_s;
 
 PinInfo_s * get_pin_info(PinName_e pin);

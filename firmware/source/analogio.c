@@ -16,16 +16,18 @@ void adc_init()
             ADC_DMA_ADD_INC_3 & ADC_ALT_INPUT_OFF;
     config3 = ADC_CONV_CLK_SYSTEM & ADC_SAMPLE_TIME_30 & ADC_CONV_CLK_60Tcy;
     config4 = ADC_DMA_BUF_LOC_1;
-    configport_l = ENABLE_AN1_ANA & ENABLE_AN4_ANA & ENABLE_AN5_ANA;
+    //configport_l = ENABLE_AN1_ANA & ENABLE_AN4_ANA & ENABLE_AN5_ANA;
+    configport_l = ENABLE_ALL_DIG_0_15;
     configport_h = ENABLE_ALL_DIG_16_31;
-    configscan_l = ~(SKIP_SCAN_AN1 & SKIP_SCAN_AN4 & SKIP_SCAN_AN5);
+    //configscan_l = ~(SKIP_SCAN_AN1 & SKIP_SCAN_AN4 & SKIP_SCAN_AN5);
+    configscan_l = SCAN_NONE_0_15;
     configscan_h = SCAN_NONE_16_31;
 
+    //_TRISA1 = 1;
+    //_TRISB2 = 1;
+    //_TRISB3 = 1;
 
     DisableIntADC1();
-    _TRISA1 = 1;
-    _TRISB2 = 1;
-    _TRISB3 = 1;
     OpenADC1(config1, config2, config3, config4,
              configport_l, configport_h,
              configscan_h, configscan_l);

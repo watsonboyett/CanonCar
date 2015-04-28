@@ -34,12 +34,12 @@ void spi_write(uint8_t data)
     // block until buffer is filed (as per errata)
     while (!SPI1STATbits.SPITBF)
     {
-        delay_us(1);
+        delay_ns(100);
     }
     // block until SPI transmit buffer is clear
     while (SPI1STATbits.SPITBF)
     {
-        delay_us(1);
+        delay_ns(100);
     }
 }
 
@@ -49,7 +49,7 @@ uint8_t spi_read()
     // block until SPI receive buffer is full
     while (!SPI1STATbits.SPIRBF)
     {
-        delay_us(1);
+        delay_ns(100);
     }
     // return SPI receive buffer data
     uint8_t data = SPI1BUF;
@@ -59,10 +59,10 @@ uint8_t spi_read()
 uint8_t spi_clear_rx()
 {
     SPI1STATbits.SPIROV = 0;
-    delay_us(1);
+    delay_ns(300);
     uint8_t data = SPI1BUF;
-    delay_us(1);
+    delay_ns(300);
     SPI1STATbits.SPIROV = 0;
-    delay_us(1);
+    delay_ns(300);
     return data;
 }

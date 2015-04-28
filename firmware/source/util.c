@@ -37,6 +37,9 @@ void periph_disable_all()
     ODCA = 0b0000000000000000;
     ODCB = 0b0000000000000000;
 
+    // disable all pull-ups
+    CNPU1 = 0b0000000000000000;
+    CNPU2 = 0b0000000000000000;
 
     // disable all peripherals
     PPSUnLock;
@@ -93,13 +96,13 @@ void heartbeat_init()
 {
     HEARTBEAT_TRIS = 0;
 
-    uint16_t match_value = (Fcy / 256) * 300e-3;
+    uint16_t match_val = (Fcy / 256) * 300e-3;
 
     ConfigIntTimer1(T1_INT_PRIOR_6 & T1_INT_ON);
     WriteTimer1(0);
     OpenTimer1(T1_ON & T1_GATE_OFF & T1_IDLE_STOP &
                T1_PS_1_256 & T1_SYNC_EXT_OFF &
-               T1_SOURCE_INT, match_value);
+               T1_SOURCE_INT, match_val);
 }
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)

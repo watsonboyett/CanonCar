@@ -22,15 +22,28 @@ int main(void)
     periph_disable_all();
     spi_init();
     io_init();
-    RFM12_init();
-    motor_init();
-    //stick_init();
+    //RFM12_init();
+    //motor_init();
     heartbeat_init();
-    
+
+    //stick_init();
+
+    pin_mode(A1, Digital_Out);
+    pin_mode(A6, Digital_In);
+    pin_mode(D0, Digital_Out);
+    pin_mode(D7, Digital_In);
     while (1)
     {
-        //drive();
-        digitalio_test();
+        //digitalio_test();
+        
+
+        bool val2 = digital_read(A6);
+        digital_write(A1, !val2);
+
+        bool val1 = digital_read(D7);
+        digital_write(D0, !val1);
+        
+        delay_ms(100);
     }
 
     return 0;

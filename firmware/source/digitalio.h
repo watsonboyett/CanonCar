@@ -30,8 +30,15 @@
 
 void digitalio_init();
 void digitalio_pin_mode(PinInfo_s * pin, PinMode_e mode);
-void digitalio_write(uint8_t reg_addr, uint8_t data);
-uint8_t digitalio_read(uint8_t reg_addr);
+bool digitalio_read(PinInfo_s * pin);
+void digitalio_write(PinInfo_s * pin, bool value);
+
+bool digitalio_internal_read(RegAddr_t reg_addr, uint8_t bit_pos);
+void digitalio_internal_write(RegAddr_t reg_addr, uint8_t bit_pos, bool val);
+
+bool digitalio_external_read(uint8_t reg_addr, uint8_t bit_pos);
+void digitalio_external_write(uint8_t reg_addr, uint8_t bit_pos, bool val);
+
 
 bool digitalio_test();
 

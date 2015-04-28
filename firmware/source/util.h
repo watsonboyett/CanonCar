@@ -7,7 +7,7 @@
 void clock_init();
 void periph_disable_all();
 
-#define HEARTBEAT_TRIS _RA0
+#define HEARTBEAT_TRIS _TRISA0
 #define HEARTBEAT_LAT _LATA0
 void heartbeat_init();
 void heartbeat_toggle();
