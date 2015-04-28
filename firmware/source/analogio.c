@@ -60,7 +60,7 @@ void analogio_init()
     dma_init();
 }
 
-void analogio_pin_mode(PinInfo_s * pin, PinMode_e mode)
+void analogio_pin_mode(PinConfig_s * pin, const PinDir_e dir)
 {
 
 }

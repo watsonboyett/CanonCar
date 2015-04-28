@@ -49,78 +49,91 @@ void digitalio_init()
     DIO_INT_TRIS = 1;
 }
 
-void digitalio_pin_mode(PinInfo_s * pin, PinMode_e mode)
+void digitalio_pin_mode(PinConfig_s * pin, PinDir_e dir)
 {
-    if (pin->location == Internal)
+    PinInfo_s * pin_info = pin->info;
+    if (pin_info->location == Internal)
     {
-        uint16_t tris = *(pin->tris);
-        if (mode == Digital_Out)
+        uint16_t tris = *(pin_info->tris);
+        if (dir == Output)
         {
-            bit_clear(tris, pin->bit_pos);
+            bit_clear(tris, pin_info->bit_pos);
         }
-        else if (mode == Digital_In)
+        else if (dir == Input || dir == Input_Pullup)
         {
-            bit_set(tris, pin->bit_pos);
+            bit_set(tris, pin_info->bit_pos);
+
+            if (dir == Input_Pullup)
+            {
+                // TODO: this
+            }
 
             // NOTE: must configure ADC pins to allow digital input
             uint16_t adc_tris = AD1PCFGL;
             //bit_set(adc_tris, pin->bit_pos);      // AD1PCFGL ANx does not map to port pins number
             AD1PCFGL = adc_tris;
         }
-        *(pin->tris) = tris;
+        *(pin_info->tris) = tris;
     }
-    else if (pin->location == External)
+    else if (pin_info->location == SPI_DIO)
     {
         uint8_t tris = digitalio_read_spi_register(DIO_ADDR_IODIR);
-        if (mode == Digital_Out)
+        if (dir == Output)
         {
-            bit_clear(tris, pin->bit_pos);
+            bit_clear(tris, pin_info->bit_pos);
         }
-        else if (mode == Digital_In)
+        else if (dir == Input || dir == Input_Pullup)
         {
-            bit_set(tris, pin->bit_pos);
+            bit_set(tris, pin_info->bit_pos);
+
+            if (dir == Input_Pullup)
+            {
+                // TODO: this
+            }
         }
         digitalio_write_spi_register(DIO_ADDR_IODIR, tris);
         delay_us(1);
     }
 
-    pin->mode = mode;
+    pin->dir = dir;
 }
 
-bool digitalio_read(PinInfo_s * pin)
+bool digitalio_read(PinConfig_s * pin)
 {
-    if (pin->mode != Digital_In)
+    PinInfo_s * pin_info = pin->info;
+    if (pin->mode != Digital || pin->dir != Input || pin->dir != Input_Pullup)
     {
-        digitalio_pin_mode(pin, Digital_In);
+        digitalio_pin_mode(pin, Input);
     }
 
     bool value = 0;
-    if (pin->location == Internal)
+    if (pin_info->location == Internal)
     {
-        value = digitalio_read_internal(pin->port, pin->bit_pos);
+        value = digitalio_read_internal(pin_info->port, pin_info->bit_pos);
     }
-    else if (pin->location == External)
+    else if (pin_info->location == SPI_DIO)
     {
-        value = digitalio_read_external(0, pin->bit_pos);
+        value = digitalio_read_external(0, pin_info->bit_pos);
     }
 
     return value;
 }
 
-void digitalio_write(PinInfo_s * pin, const bool value)
+void digitalio_write(PinConfig_s * pin, const bool value)
 {
-    if (pin->mode != Digital_Out)
+    PinInfo_s * pin_info = pin->info;
+    if (pin->mode != Digital || pin->dir != Output)
     {
-        digitalio_pin_mode(pin, Digital_Out);
+        digitalio_pin_mode(pin, Output);
     }
 
-    if (pin->location == Internal)
+    if (pin_info->location == Internal)
     {
-        digitalio_write_internal(pin->latch, pin->bit_pos, value);
+        digitalio_write_internal(pin_info->latch, pin_info->bit_pos, value);
     }
-    else if (pin->location == External)
+    else if (pin_info->location == SPI_DIO)
     {
-        digitalio_write_external(0, pin->bit_pos, value);
+        digitalio_write_external(0, pin_info->bit_pos, value);
     }
 }
 

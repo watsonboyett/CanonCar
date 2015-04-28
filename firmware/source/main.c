@@ -30,10 +30,10 @@ int main(void)
     //stick_init();
 
 
-    pin_mode(A1, Digital_Out);
-    pin_mode(A6, Digital_In);
-    pin_mode(D0, Digital_Out);
-    pin_mode(D7, Digital_In);
+    pin_mode(A1, Digital, Output);
+    pin_mode(A6, Digital, Input);
+    pin_mode(D0, Digital, Output);
+    pin_mode(D7, Digital, Input);
 
     while (1)
     {

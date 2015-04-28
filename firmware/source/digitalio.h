@@ -4,9 +4,9 @@
 #include "pins.h"
 
 void digitalio_init();
-void digitalio_pin_mode(PinInfo_s * pin, const PinMode_e mode);
-bool digitalio_read(PinInfo_s * pin);
-void digitalio_write(PinInfo_s * pin, const bool value);
+void digitalio_pin_mode(PinConfig_s * pin, const PinDir_e dir);
+bool digitalio_read(PinConfig_s * pin);
+void digitalio_write(PinConfig_s * pin, const bool value);
 
 bool digitalio_test();
 
