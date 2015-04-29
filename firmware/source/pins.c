@@ -35,12 +35,12 @@ PinInfo_s Pin_SPI_D7 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .
 
 PinConfig_s Pin_A0 = {.info = &Pin_RA0, .mode = Digital, .dir = Output};
 PinConfig_s Pin_A1 = {.info = &Pin_RA1, .mode = Digital, .dir = Output};
-PinConfig_s Pin_A2 = {.info = &Pin_RA2, .mode = Digital, .dir = Output};
-PinConfig_s Pin_A3 = {.info = &Pin_RA3, .mode = Digital, .dir = Output};
-PinConfig_s Pin_A4 = {.info = &Pin_RA4, .mode = Digital, .dir = Output};
+PinConfig_s Pin_A2 = {.info = &Pin_RA2, .mode = Digital, .dir = Output};    // no AN
+PinConfig_s Pin_A3 = {.info = &Pin_RA3, .mode = Digital, .dir = Output};    // no AN
+PinConfig_s Pin_A4 = {.info = &Pin_RA4, .mode = Digital, .dir = Output};    // no AN
 PinConfig_s Pin_A5 = {.info = &Pin_RB2, .mode = Digital, .dir = Output};
 PinConfig_s Pin_A6 = {.info = &Pin_RB3, .mode = Digital, .dir = Output};
-PinConfig_s Pin_A7 = {.info = &Pin_RB4, .mode = Digital, .dir = Output};
+PinConfig_s Pin_A7 = {.info = &Pin_RB4, .mode = Digital, .dir = Output};    // no AN
 PinConfig_s Pin_A8 = {.info = &Pin_RB0, .mode = Digital, .dir = Output};
 PinConfig_s Pin_A9 = {.info = &Pin_RB1, .mode = Digital, .dir = Output};
 

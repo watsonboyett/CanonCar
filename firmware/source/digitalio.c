@@ -49,7 +49,7 @@ void digitalio_init()
     DIO_INT_TRIS = 1;
 }
 
-void digitalio_pin_mode(PinConfig_s * pin, PinDir_e dir)
+void digitalio_set_dir(PinConfig_s * pin, const PinDir_e dir)
 {
     PinInfo_s * pin_info = pin->info;
     if (pin_info->location == Internal)
@@ -68,10 +68,13 @@ void digitalio_pin_mode(PinConfig_s * pin, PinDir_e dir)
                 // TODO: this
             }
 
-            // NOTE: must configure ADC pins to allow digital input
-            uint16_t adc_tris = AD1PCFGL;
-            //bit_set(adc_tris, pin->bit_pos);      // AD1PCFGL ANx does not map to port pins number
-            AD1PCFGL = adc_tris;
+            // NOTE: must set ADC pin config register to allow digital input
+            if (pin_info->analog_chan != -1)
+            {
+                uint16_t cfg_AD1PCFGL = AD1PCFGL;
+                bit_set(cfg_AD1PCFGL, pin_info->analog_chan);
+                AD1PCFGL = cfg_AD1PCFGL;
+            }
         }
         *(pin_info->tris) = tris;
     }
@@ -103,7 +106,7 @@ bool digitalio_read(PinConfig_s * pin)
     PinInfo_s * pin_info = pin->info;
     if (pin->mode != Digital || pin->dir != Input || pin->dir != Input_Pullup)
     {
-        digitalio_pin_mode(pin, Input);
+        digitalio_set_dir(pin, Input);
     }
 
     bool value = 0;
@@ -124,7 +127,7 @@ void digitalio_write(PinConfig_s * pin, const bool value)
     PinInfo_s * pin_info = pin->info;
     if (pin->mode != Digital || pin->dir != Output)
     {
-        digitalio_pin_mode(pin, Output);
+        digitalio_set_dir(pin, Output);
     }
 
     if (pin_info->location == Internal)

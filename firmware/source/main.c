@@ -31,17 +31,23 @@ int main(void)
 
 
     pin_mode(A1, Digital, Output);
-    pin_mode(A6, Digital, Input);
+    pin_mode(A2, Digital, Input);
     pin_mode(D0, Digital, Output);
     pin_mode(D7, Digital, Input);
+    pin_mode(A5, Analog, Input);
+    pin_mode(A6, Analog, Input);
 
     while (1)
     {
-        bool val2 = digital_read(A6);
+        bool val2 = digital_read(A2);
         digital_write(A1, !val2);
 
         bool val1 = digital_read(D7);
         digital_write(D0, !val1);
+
+
+        uint16_t a5 = analog_read(A5);
+        uint16_t a6 = analog_read(A6);
 
         delay_ms(1);
     }
