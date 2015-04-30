@@ -32,6 +32,15 @@ PinInfo_s Pin_SPI_D5 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .
 PinInfo_s Pin_SPI_D6 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6};
 PinInfo_s Pin_SPI_D7 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
 
+PinInfo_s Pin_SPI_M0 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0};
+PinInfo_s Pin_SPI_M1 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1};
+PinInfo_s Pin_SPI_M2 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2};
+PinInfo_s Pin_SPI_M3 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3};
+PinInfo_s Pin_SPI_M4 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4};
+PinInfo_s Pin_SPI_M5 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5};
+PinInfo_s Pin_SPI_M6 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6};
+PinInfo_s Pin_SPI_M7 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
+
 
 PinConfig_s Pin_A0 = {.info = &Pin_RA0, .mode = Digital, .dir = Output};
 PinConfig_s Pin_A1 = {.info = &Pin_RA1, .mode = Digital, .dir = Output};
@@ -44,6 +53,11 @@ PinConfig_s Pin_A7 = {.info = &Pin_RB4, .mode = Digital, .dir = Output};    // n
 PinConfig_s Pin_A8 = {.info = &Pin_RB0, .mode = Digital, .dir = Output};
 PinConfig_s Pin_A9 = {.info = &Pin_RB1, .mode = Digital, .dir = Output};
 
+PinConfig_s Pin_SPI_RFM_CS = {.info = &Pin_RB14, .mode = Digital, .dir = Output};
+PinConfig_s Pin_SPI_RFM_IRQ = {.info = &Pin_RB15, .mode = Digital, .dir = Output};
+PinConfig_s Pin_SPI_DIO_CS = {.info = &Pin_RB12, .mode = Digital, .dir = Output};
+PinConfig_s Pin_SPI_DIO_IRQ = {.info = &Pin_RB13, .mode = Digital, .dir = Output};
+
 PinConfig_s Pin_D0 = {.info = &Pin_SPI_D0, .mode = Digital, .dir = Input};
 PinConfig_s Pin_D1 = {.info = &Pin_SPI_D1, .mode = Digital, .dir = Input};
 PinConfig_s Pin_D2 = {.info = &Pin_SPI_D2, .mode = Digital, .dir = Input};
@@ -53,8 +67,21 @@ PinConfig_s Pin_D5 = {.info = &Pin_SPI_D5, .mode = Digital, .dir = Input};
 PinConfig_s Pin_D6 = {.info = &Pin_SPI_D6, .mode = Digital, .dir = Input};
 PinConfig_s Pin_D7 = {.info = &Pin_SPI_D7, .mode = Digital, .dir = Input};
 
+PinConfig_s Pin_M0 = {.info = &Pin_SPI_M0, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M1 = {.info = &Pin_SPI_M1, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M2 = {.info = &Pin_SPI_M2, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M3 = {.info = &Pin_SPI_M3, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M4 = {.info = &Pin_SPI_M4, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M5 = {.info = &Pin_SPI_M5, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M6 = {.info = &Pin_SPI_M6, .mode = Digital, .dir = Input};
+PinConfig_s Pin_M7 = {.info = &Pin_SPI_M7, .mode = Digital, .dir = Input};
 
-PinConfig_s * pin_array[18] = {
+PinConfig_s Pin_M1V1 = {.info = &Pin_RB5, .mode = Digital, .dir = Output};
+PinConfig_s Pin_M1V2 = {.info = &Pin_RB6, .mode = Digital, .dir = Output};
+PinConfig_s Pin_M2V1 = {.info = &Pin_RB7, .mode = Digital, .dir = Output};
+PinConfig_s Pin_M2V2 = {.info = &Pin_RB8, .mode = Digital, .dir = Output};
+
+PinConfig_s * pin_array[34] = {
     &Pin_A0,
     &Pin_A1,
     &Pin_A2,
@@ -65,6 +92,12 @@ PinConfig_s * pin_array[18] = {
     &Pin_A7,
     &Pin_A8,
     &Pin_A9,
+
+    &Pin_SPI_RFM_CS,
+    &Pin_SPI_RFM_IRQ,
+    &Pin_SPI_DIO_CS,
+    &Pin_SPI_DIO_IRQ,
+    
     &Pin_D0,
     &Pin_D1,
     &Pin_D2,
@@ -73,6 +106,20 @@ PinConfig_s * pin_array[18] = {
     &Pin_D5,
     &Pin_D6,
     &Pin_D7,
+
+    &Pin_M0,
+    &Pin_M1,
+    &Pin_M2,
+    &Pin_M3,
+    &Pin_M4,
+    &Pin_M5,
+    &Pin_M6,
+    &Pin_M7,
+    
+    &Pin_M1V1,
+    &Pin_M1V2,
+    &Pin_M2V1,
+    &Pin_M2V2
 };
 
 PinConfig_s * get_pin_config(PinName_e pin)
