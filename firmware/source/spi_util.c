@@ -15,13 +15,15 @@ void spi_init()
     PPSLock;
 
     // setup SPI configuration bits
-    uint16_t cfg1 = MASTER_ENABLE_ON & SLAVE_ENABLE_OFF & ENABLE_SCK_PIN & ENABLE_SDO_PIN &
+    uint16_t cfg_SPI1CON1 = MASTER_ENABLE_ON & SLAVE_ENABLE_OFF & ENABLE_SCK_PIN & ENABLE_SDO_PIN &
             SPI_MODE16_OFF & PRI_PRESCAL_4_1 & SEC_PRESCAL_8_1 &
             SPI_SMP_OFF & SPI_CKE_ON & CLK_POL_ACTIVE_HIGH;
-    uint16_t cfg2 = FRAME_ENABLE_OFF & FRAME_SYNC_OUTPUT & FRAME_POL_ACTIVE_LOW &
+    SPI1CON1 = cfg_SPI1CON1;
+
+    uint16_t cfg_SPI1CON2 = FRAME_ENABLE_OFF & FRAME_SYNC_OUTPUT & FRAME_POL_ACTIVE_LOW &
             FRAME_SYNC_EDGE_PRECEDE;
-    SPI1CON1 = cfg1;
-    SPI1CON2 = cfg2;
+    SPI1CON2 = cfg_SPI1CON2;
+
     // enable the SPI periph
     SPI1STATbits.SPIEN = 1;
 }
@@ -31,26 +33,49 @@ void spi_write(uint8_t data)
 {
     // load SPI transmit buffer
     SPI1BUF = data;
-    // block until buffer is filed (as per errata)
-    while (!SPI1STATbits.SPITBF)
+    
+    // NOTE: must wait until buffer full flag is set
+    // (as described in 24HJ128GP502 errata)
+    int a;
+    for (a = 0; a < 100; a++)
     {
+        if (SPI1STATbits.SPITBF)
+        {
+            break;
+        }
         delay_ns(100);
     }
-    // block until SPI transmit buffer is clear
-    while (SPI1STATbits.SPITBF)
+
+    // wait until SPI transmit buffer is clear
+    int b;
+    for (b = 0; b < 100; b++)
     {
+        if (!SPI1STATbits.SPITBF)
+        {
+            break;
+        }
         delay_ns(100);
     }
+
+    // NOTE: must wait at least 1 SPI clock cycle before writing to SPIBUF again
+    // (as described in 24HJ128GP502 errata)
+    delay_ns(500);
 }
 
 /* send data to the SPI module (and block until success) */
 uint8_t spi_read()
 {
-    // block until SPI receive buffer is full
-    while (!SPI1STATbits.SPIRBF)
+    // wait until SPI receive buffer is full
+    int i;
+    for (i = 0; i < 100; i++)
     {
+        if (SPI1STATbits.SPIRBF)
+        {
+            break;
+        }
         delay_ns(100);
     }
+
     // return SPI receive buffer data
     uint8_t data = SPI1BUF;
     return data;

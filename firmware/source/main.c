@@ -24,7 +24,7 @@ int main(void)
     spi_init();
     io_init();
     //RFM12_init();
-    //motor_init();
+    motor_init();
     heartbeat_init();
 
     //stick_init();
@@ -32,22 +32,26 @@ int main(void)
 
     pin_mode(A1, Digital, Output);
     pin_mode(A2, Digital, Input);
-    pin_mode(D0, Digital, Output);
+    pin_mode(D1, Digital, Output);
     pin_mode(D7, Digital, Input);
     pin_mode(A5, Analog, Input);
     pin_mode(A6, Analog, Input);
 
+    motor_set_mode(Driver1, DC);
+    motor_set_current_level(Driver1, Channel1, Full);
+    motor_set_dir(Driver1, Channel1, Forward);
+    motor_set_speed(Driver1, Channel1, 1.0);
+
     while (1)
     {
-        bool val2 = digital_read(A2);
-        digital_write(A1, !val2);
+        bool a2_val = digital_read(A2);
+        digital_write(A1, !a2_val);
 
-        bool val1 = digital_read(D7);
-        digital_write(D0, !val1);
+        //bool d7_val = digital_read(D7);
+        //digital_write(D1, !d7_val);
 
-
-        uint16_t a5 = analog_read(A5);
-        uint16_t a6 = analog_read(A6);
+        uint16_t a5_val = analog_read(A5);
+        uint16_t a6_val = analog_read(A6);
 
         delay_ms(1);
     }

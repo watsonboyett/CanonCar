@@ -2,6 +2,7 @@
 #include <pps.h>
 #include <timer.h>
 #include "motor.h"
+#include "io.h"
 #include "util.h"
 
 #define D1C1_VREF _RB5
@@ -9,35 +10,29 @@
 #define D1C2_VREF _RB6
 #define D1C2_TRIS _TRISB6
 
-#define D1C1_PHASE 0
-#define D1C2_PHASE 1
-#define D1Cx_Ix1 2
-#define D1Cx_Ix2 3
-
 #define D2C1_VREF _RB7
 #define D2C1_TRIS _TRISB7
 #define D2C2_VREF _RB8
 #define D2C2_TRIS _TRISB8
 
-#define D2C1_PHASE 4
-#define D2C2_PHASE 5
-#define D2Cx_Ix1 6
-#define D2Cx_Ix2 7
-
 #define PWM_RES 4096
+//#define PWM_RES 32000
 
-void spi_write_bit(uint8_t bit_index, bool bit_value);
-void spi_write_bits(uint8_t bit_mask, uint8_t bit_values);
-bool spi_read_bit(uint8_t bit_index);
-uint8_t spi_read_bits(uint8_t bit_mask);
 
+void motor_pwm_init();
+void motor_io_init();
 
 /* initialize motor pins and modules */
 void motor_init()
 {
-    // setup open drain outputs (for full motor voltage range)
-    //ODCB = ODCB | 0b0000000111100000;
+    motor_pwm_init();
+    motor_io_init();
 
+
+}
+
+void motor_pwm_init()
+{
     // connect PWM pins to Output Compare module (for motor control voltage)
     PPSUnLock;
     OUT_PIN_PPS_RP5 = OUT_FN_PPS_OC1;
@@ -82,6 +77,21 @@ void motor_init()
                & T2_PS_1_1 & T2_SOURCE_INT, PWM_RES);
 }
 
+void motor_io_init()
+{
+    pin_mode(M1_PHASE1, Digital, Output);
+    pin_mode(M1_PHASE2, Digital, Output);
+    pin_mode(M1_I0X, Digital, Output);
+    pin_mode(M1_I1X, Digital, Output);
+
+    pin_mode(M2_PHASE1, Digital, Output);
+    pin_mode(M2_PHASE2, Digital, Output);
+    pin_mode(M2_I0X, Digital, Output);
+    pin_mode(M2_I1X, Digital, Output);
+
+    // setup open drain outputs (for full motor voltage range)
+    ODCB = ODCB | 0b0000000111100000;
+}
 
 MotorMode_e Driver1_Mode = DC;
 MotorMode_e Driver2_Mode = DC;
@@ -119,58 +129,58 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 /* set motor direction */
 void motor_set_dir(MotorDriver_e driver, DriverChannel_e channel, MotorDirection_e dir)
 {
-    uint8_t port_bits = 0;
-
     switch (driver)
     {
     case Driver1:
         if (channel == Channel1 || Driver1_Mode == Stepper)
         {
-            bit_set(port_bits, D1C1_PHASE);
+            digital_write(M1_PHASE1, dir);
         }
-        else if (channel == Channel2 || Driver1_Mode == Stepper)
+        if (channel == Channel2 || Driver1_Mode == Stepper)
         {
-            bit_set(port_bits, D1C2_PHASE);
+            digital_write(M1_PHASE2, dir);
         }
         break;
-    case Driver2:
 
-        if (channel == Channel1)
+    case Driver2:
+        if (channel == Channel1 || Driver2_Mode == Stepper)
         {
-            bit_set(port_bits, D2C1_PHASE);
+            digital_write(M2_PHASE1, dir);
         }
-        else if (channel == Channel2)
+        if (channel == Channel2 || Driver2_Mode == Stepper)
         {
-            bit_set(port_bits, D2C2_PHASE);
+            digital_write(M2_PHASE2, dir);
         }
         break;
     }
-
-    //spi_set_bit(SpiMotorModule, port_bits, dir);
 }
 
 void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, MotorCurrentOutput_e current)
 {
-    uint8_t port_bits = 0;
-    uint8_t port_values = 0;
-
-    // NOTE: current pins for both channels are wired together, so they cannot
-    // be set independently
     switch (driver)
     {
     case Driver1:
-        bit_set(port_bits, D1Cx_Ix1);
-        bit_set(port_bits, D1Cx_Ix2);
-        port_values |= current << D1Cx_Ix1;
+        if (channel == Channel1 || Driver1_Mode == Stepper)
+        {
+            digital_write(M1_I0X, bit_read(current, 0));
+        }
+        if (channel == Channel2 || Driver1_Mode == Stepper)
+        {
+            digital_write(M1_I1X, bit_read(current, 1));
+        }
         break;
+
     case Driver2:
-        bit_set(port_bits, D2Cx_Ix1);
-        bit_set(port_bits, D2Cx_Ix2);
-        port_values |= current << D2Cx_Ix1;
+        if (channel == Channel1 || Driver2_Mode == Stepper)
+        {
+            digital_write(M2_I0X, bit_read(current, 0));
+        }
+        if (channel == Channel2 || Driver2_Mode == Stepper)
+        {
+            digital_write(M2_I1X, bit_read(current, 1));
+        }
         break;
     }
-
-    //spi_set_bits(SpiMotorModule, port_bits, port_values);
 }
 
 /* stop motor voltage/speed */
@@ -187,39 +197,26 @@ void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
     switch (driver)
     {
     case Driver1:
-        if (Driver1_Mode == Stepper)
+        if (channel == Channel1 || Driver1_Mode == Stepper)
         {
             Driver1_Channel1_DC = buf;
+        }
+        if (channel == Channel2 || Driver1_Mode == Stepper)
+        {
             Driver1_Channel2_DC = buf;
         }
-        else
-        {
-            if (channel == Channel1)
-            {
-                Driver1_Channel1_DC = buf;
-            }
-            else if (channel == Channel2)
-            {
-                Driver1_Channel2_DC = buf;
-            }
-        }
         break;
+
     case Driver2:
-        if (Driver2_Mode == Stepper)
+        if (channel == Channel1 || Driver2_Mode == Stepper)
         {
             Driver2_Channel1_DC = buf;
+        }
+        if (channel == Channel2 || Driver2_Mode == Stepper)
+        {
             Driver2_Channel2_DC = buf;
         }
-        else
-        {
-            if (channel == Channel1)
-            {
-                Driver2_Channel1_DC = buf;
-            }
-            else if (channel == Channel2)
-            {
-                Driver2_Channel2_DC = buf;
-            }
-        }
+        break;
+
     }
 }
