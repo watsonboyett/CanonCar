@@ -15,9 +15,12 @@ void digitalio_write_internal(RegAddr_t reg_addr, const uint8_t bit_pos, const b
 #define DIO_INT_TRIS _TRISB13
 #define DIO_INT _RB13
 
-// SPI-DIO control words: device header + addr + R/W flag
+// SPI-DIO control words: device header (7-2) + addr (2-1) + R/W flag (0)
 #define DIO_CTRL_READ 0b01000001
 #define DIO_CTRL_WRITE 0b01000000
+
+#define DIO_SPI_ADDR 0b00000000
+#define MOTOR_SPI_ADDR 0b00000110
 
 // SPI-DIO register addresses
 #define DIO_ADDR_IODIR 0x00
@@ -104,7 +107,7 @@ void digitalio_set_dir(PinConfig_s * pin, const PinDir_e dir)
 bool digitalio_read(PinConfig_s * pin)
 {
     PinInfo_s * pin_info = pin->info;
-    if (pin->mode != Digital || pin->dir != Input || pin->dir != Input_Pullup)
+    if (pin->mode != Digital || !(pin->dir == Input || pin->dir == Input_Pullup))
     {
         digitalio_set_dir(pin, Input);
     }
@@ -193,7 +196,7 @@ void digitalio_write_spi_register(const uint8_t reg_addr, const uint8_t data)
     delay_ns(100);
 
     // send header + device addres + write opcode
-    spi_write(DIO_CTRL_WRITE);
+    spi_write(DIO_CTRL_WRITE | MOTOR_SPI_ADDR);
     // send register address
     spi_write(reg_addr);
     // send data
@@ -210,7 +213,7 @@ uint8_t digitalio_read_spi_register(const uint8_t reg_addr)
     delay_ns(100);
 
     // send header + device addres + write opcode
-    spi_write(DIO_CTRL_READ);
+    spi_write(DIO_CTRL_READ | MOTOR_SPI_ADDR);
 
     // send register address
     spi_write(reg_addr);
