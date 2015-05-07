@@ -40,10 +40,26 @@ int main(void)
     motor_set_mode(Driver1, DC);
     motor_set_current_level(Driver1, Channel1, Full);
     motor_set_dir(Driver1, Channel1, Forward);
-    motor_set_speed(Driver1, Channel1, 1.0);
 
+
+    float step = 0.01;
+    float speed = 0;
+    float dir = 1;
     while (1)
     {
+        if (speed >= 1.0)
+        {
+            dir = -1;
+        }
+        else if (speed <= step)
+        {
+            dir = 1;
+        }
+
+        speed = speed + (dir * step);
+
+        motor_set_speed(Driver1, Channel1, speed);
+
         bool a2_val = digital_read(A2);
         digital_write(A1, !a2_val);
 
@@ -53,7 +69,7 @@ int main(void)
         uint16_t a5_val = analog_read(A5);
         uint16_t a6_val = analog_read(A6);
 
-        delay_ms(1);
+        delay_ms(100);
     }
 
     return 0;
