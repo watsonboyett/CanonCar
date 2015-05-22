@@ -16,6 +16,7 @@ _FOSC(FCKSM_CSECMD & OSCIOFNC_ON & IOL1WAY_OFF);
 // Disable watchdog timer
 _FWDT(FWDTEN_OFF);
 
+
 int main(void)
 {
     // initialize all peripherals/modules
@@ -40,25 +41,41 @@ int main(void)
     motor_set_mode(Driver1, DC);
     motor_set_current_level(Driver1, Channel1, Full);
     motor_set_dir(Driver1, Channel1, Forward);
+    motor_set_current_level(Driver1, Channel2, Full);
+    motor_set_dir(Driver1, Channel2, Forward);
+
+    motor_set_mode(Driver2, DC);
+    motor_set_current_level(Driver2, Channel1, Full);
+    motor_set_dir(Driver2, Channel1, Forward);
+    motor_set_current_level(Driver2, Channel2, Full);
+    motor_set_dir(Driver2, Channel2, Forward);
+
+
+    //TRISBbits.TRISB4 = 0;
 
 
     float step = 0.01;
-    float speed = 0;
+    float speed = 1.0;
     float dir = 1;
     while (1)
     {
+
+        
         if (speed >= 1.0)
         {
             dir = -1;
         }
-        else if (speed <= step)
+        else if (speed <= 0.4)
         {
             dir = 1;
         }
-
-        speed = speed + (dir * step);
+        //speed = speed + (dir * step);
 
         motor_set_speed(Driver1, Channel1, speed);
+        motor_set_speed(Driver1, Channel2, speed);
+        motor_set_speed(Driver2, Channel1, speed);
+        motor_set_speed(Driver2, Channel2, speed);
+
 
         bool a2_val = digital_read(A2);
         digital_write(A1, !a2_val);
@@ -68,6 +85,10 @@ int main(void)
 
         uint16_t a5_val = analog_read(A5);
         uint16_t a6_val = analog_read(A6);
+
+
+
+        //LATBbits.LATB4 = !LATBbits.LATB4;
 
         delay_ms(100);
     }

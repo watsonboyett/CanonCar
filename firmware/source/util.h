@@ -12,10 +12,10 @@ void periph_disable_all();
 void heartbeat_init();
 void heartbeat_toggle();
 
-void delay_ns(uint32_t count);
-void delay_us(uint32_t count);
-void delay_ms(uint32_t count);
-void delay(uint32_t count);
+void __attribute__((optimize("O0"))) delay(uint32_t count);
+void __attribute__((optimize("O0"))) delay_ns(uint32_t count);
+void __attribute__((optimize("O0"))) delay_us(uint32_t count);
+void __attribute__((optimize("O0"))) delay_ms(uint32_t count);
 
 #define cycles_per_us() ( Fcy / 1000000L )
 #define cycles_to_us(a) ( (a) / cycles_per_us() )

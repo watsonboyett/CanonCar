@@ -62,16 +62,18 @@ typedef enum {
 typedef enum {
     Output = 0,
     Input = 1,
-    Input_Pullup = 2
+    Input_Pullup = 2,
+    Output_OpenCollector = 3
 } PinDir_e;
 
 typedef struct {
-    const PortLoc_e location; // pin's location (internal/spi)
-    RegAddr_t tris; // pin's port direction register address
-    RegAddr_t port; // pin's port read register address
-    RegAddr_t latch; // pin's port write register address
-    const uint8_t bit_pos; // pin's bit position within port
-    const uint8_t analog_chan; // pin's analog channel (if present)
+    const PortLoc_e location;   // pin's location (internal/spi)
+    const uint8_t addr;         // pin's base/device address
+    RegAddr_t tris;             // pin's port direction register address
+    RegAddr_t port;             // pin's port read register address
+    RegAddr_t latch;            // pin's port write register address
+    const uint8_t bit_pos;      // pin's bit position within port
+    const uint8_t analog_chan;  // pin's analog channel (if present)
 } PinInfo_s;
 
 typedef struct {

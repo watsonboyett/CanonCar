@@ -58,27 +58,32 @@ void periph_disable_all()
     PPSLock;
 }
 
-void delay_ns(uint32_t count)
+
+
+const uint32_t delay_ns_div = 120;
+const uint32_t delay_ns_min = 300;
+void __attribute__((optimize("O0"))) delay_ns(uint32_t count)
 {
-    count = count * (Fcy * 1e-9);
-    delay(count);
+    if (count > delay_ns_min)
+    {
+        count = count / delay_ns_div;
+        delay(count);
+    }
 }
 
-void delay_us(uint32_t count)
+void __attribute__((optimize("O0"))) delay_us(uint32_t count)
 {
-    count = count * (Fcy * 1e-6);
-    delay(count);
+    delay_ns(count * 1000);
 }
 
-void delay_ms(uint32_t count)
+void __attribute__((optimize("O0"))) delay_ms(uint32_t count)
 {
-    count = count * (Fcy * 1e-3);
-    delay(count);
+    delay_us(count * 1000);
 }
 
-void delay(uint32_t count)
+void __attribute__((optimize("O0"))) delay(uint32_t count)
 {
-    count = count / 11;
+    count = count >> 3;
     while (count > 0)
     {
         count--;

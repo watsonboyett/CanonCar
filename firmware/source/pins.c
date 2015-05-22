@@ -23,23 +23,23 @@ PinInfo_s Pin_RB13 = {.location = Internal, .tris = &TRISB, .port = &PORTB, .lat
 PinInfo_s Pin_RB14 = {.location = Internal, .tris = &TRISB, .port = &PORTB, .latch = &LATB, .bit_pos = 14, .analog_chan = 10};
 PinInfo_s Pin_RB15 = {.location = Internal, .tris = &TRISB, .port = &PORTB, .latch = &LATB, .bit_pos = 15, .analog_chan = 9};
 
-PinInfo_s Pin_SPI_D0 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0};
-PinInfo_s Pin_SPI_D1 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1};
-PinInfo_s Pin_SPI_D2 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2};
-PinInfo_s Pin_SPI_D3 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3};
-PinInfo_s Pin_SPI_D4 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4};
-PinInfo_s Pin_SPI_D5 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5};
-PinInfo_s Pin_SPI_D6 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6};
-PinInfo_s Pin_SPI_D7 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
+PinInfo_s Pin_SPI_D0 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0};
+PinInfo_s Pin_SPI_D1 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1};
+PinInfo_s Pin_SPI_D2 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2};
+PinInfo_s Pin_SPI_D3 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3};
+PinInfo_s Pin_SPI_D4 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4};
+PinInfo_s Pin_SPI_D5 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5};
+PinInfo_s Pin_SPI_D6 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6};
+PinInfo_s Pin_SPI_D7 = {.location = SPI_DIO, .addr = 0b00, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
 
-PinInfo_s Pin_SPI_M0 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0};
-PinInfo_s Pin_SPI_M1 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1};
-PinInfo_s Pin_SPI_M2 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2};
-PinInfo_s Pin_SPI_M3 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3};
-PinInfo_s Pin_SPI_M4 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4};
-PinInfo_s Pin_SPI_M5 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5};
-PinInfo_s Pin_SPI_M6 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6};
-PinInfo_s Pin_SPI_M7 = {.location = SPI_DIO, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
+PinInfo_s Pin_SPI_M0 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 0};
+PinInfo_s Pin_SPI_M1 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 1};
+PinInfo_s Pin_SPI_M2 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 2};
+PinInfo_s Pin_SPI_M3 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 3};
+PinInfo_s Pin_SPI_M4 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 4};
+PinInfo_s Pin_SPI_M5 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 5};
+PinInfo_s Pin_SPI_M6 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 6};
+PinInfo_s Pin_SPI_M7 = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
 
 
 PinConfig_s Pin_A0 = {.info = &Pin_RA0, .mode = Digital, .dir = Output};

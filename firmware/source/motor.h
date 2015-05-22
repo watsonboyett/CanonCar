@@ -19,10 +19,10 @@ typedef enum {
 } DriverChannel_e;
 
 typedef enum {
-    Full = 0x00,
-    TwoThirds = 0x10,
-    OneThird = 0x01,
-    None = 0x11
+    Full = 0b00,
+    TwoThirds = 0b10,
+    OneThird = 0b01,
+    None = 0b11
 } MotorCurrentOutput_e;
 
 typedef enum {

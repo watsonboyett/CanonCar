@@ -155,6 +155,8 @@ void motor_set_dir(MotorDriver_e driver, DriverChannel_e channel, MotorDirection
     }
 }
 
+
+// NOTE: current control for each channel is tied together (not enough pins...)
 void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, MotorCurrentOutput_e current)
 {
     switch (driver)
@@ -163,9 +165,11 @@ void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, Moto
         if (channel == Channel1 || Driver1_Mode == Stepper)
         {
             digital_write(M1_I0X, bit_read(current, 0));
+            digital_write(M1_I1X, bit_read(current, 1));
         }
         if (channel == Channel2 || Driver1_Mode == Stepper)
         {
+            digital_write(M1_I0X, bit_read(current, 0));
             digital_write(M1_I1X, bit_read(current, 1));
         }
         break;
@@ -174,13 +178,17 @@ void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, Moto
         if (channel == Channel1 || Driver2_Mode == Stepper)
         {
             digital_write(M2_I0X, bit_read(current, 0));
+            digital_write(M2_I1X, bit_read(current, 1));
         }
         if (channel == Channel2 || Driver2_Mode == Stepper)
         {
+            digital_write(M2_I0X, bit_read(current, 0));
             digital_write(M2_I1X, bit_read(current, 1));
         }
         break;
     }
+
+    Nop();
 }
 
 /* stop motor voltage/speed */
