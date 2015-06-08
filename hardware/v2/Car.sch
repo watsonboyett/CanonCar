@@ -12753,6 +12753,10 @@ In this library the device names are the same as the pin names of the symbols, t
 </sheet>
 </sheets>
 <errors>
+<approved hash="104,1,276.86,121.92,M1_LPF,VDD,5V,,,"/>
+<approved hash="104,1,342.9,121.92,M1_LPF,VSS,AGND,,,"/>
+<approved hash="104,1,279.4,22.86,M1_LPF1,VDD,5V,,,"/>
+<approved hash="104,1,345.44,22.86,M1_LPF1,VSS,AGND,,,"/>
 <approved hash="113,1,198.797,37.9053,M2,,,,,"/>
 <approved hash="113,1,198.797,136.965,M1,,,,,"/>
 <approved hash="113,1,-114.977,89.9753,ICD,,,,,"/>
