@@ -54,27 +54,25 @@ int main(void)
     //TRISBbits.TRISB4 = 0;
 
 
-    float step = 0.01;
+    float step = 0.03;
     float speed = 1.0;
     float dir = 1;
     while (1)
     {
-
-        
         if (speed >= 1.0)
         {
             dir = -1;
         }
-        else if (speed <= 0.4)
+        else if (speed <= 0.5)
         {
             dir = 1;
         }
-        //speed = speed + (dir * step);
+        speed = speed + (dir * step);
 
         motor_set_speed(Driver1, Channel1, speed);
         motor_set_speed(Driver1, Channel2, speed);
         motor_set_speed(Driver2, Channel1, speed);
-        motor_set_speed(Driver2, Channel2, speed);
+        motor_set_speed(Driver2, Channel2, 1.0);
 
 
         bool a2_val = digital_read(A2);

@@ -83,7 +83,8 @@ void __attribute__((optimize("O0"))) delay_ms(uint32_t count)
 
 void __attribute__((optimize("O0"))) delay(uint32_t count)
 {
-    count = count >> 3;
+    //count = count >> 3;
+    count = count / 11;
     while (count > 0)
     {
         count--;

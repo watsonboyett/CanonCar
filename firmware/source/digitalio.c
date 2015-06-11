@@ -50,6 +50,11 @@ void digitalio_init()
 
     // set interrupt pin as input
     DIO_INT_TRIS = 1;
+
+
+    uint8_t iocon = 0;
+    bit_set(iocon, 3);
+    digitalio_write_spi_register(0, DIO_ADDR_IOCON, iocon);
 }
 
 void digitalio_set_dir(PinConfig_s * pin, const PinDir_e dir)

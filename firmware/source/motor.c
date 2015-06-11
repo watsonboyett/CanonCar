@@ -78,7 +78,7 @@ void motor_pwm_init()
 }
 
 void motor_io_init()
-{
+{   
     pin_mode(M1_PHASE1, Digital, Output);
     pin_mode(M1_PHASE2, Digital, Output);
     pin_mode(M1_I0X, Digital, Output);
@@ -90,7 +90,7 @@ void motor_io_init()
     pin_mode(M2_I1X, Digital, Output);
 
     // setup open drain outputs (for full motor voltage range)
-    ODCB = ODCB | 0b0000000111100000;
+    ODCB = ODCB | 0b0000000011100000;
 }
 
 MotorMode_e Driver1_Mode = DC;
