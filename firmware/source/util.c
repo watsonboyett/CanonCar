@@ -58,36 +58,29 @@ void periph_disable_all()
     PPSLock;
 }
 
-
-
-const uint32_t delay_ns_div = 120;
-const uint32_t delay_ns_min = 300;
-void __attribute__((optimize("O0"))) delay_ns(uint32_t count)
+void __attribute__((optimize("O0"))) delay_ms(uint32_t count)
 {
-    if (count > delay_ns_min)
-    {
-        count = count / delay_ns_div;
-        delay(count);
-    }
+    delay_us(count * 1030);
 }
 
 void __attribute__((optimize("O0"))) delay_us(uint32_t count)
 {
-    delay_ns(count * 1000);
-}
-
-void __attribute__((optimize("O0"))) delay_ms(uint32_t count)
-{
-    delay_us(count * 1000);
-}
-
-void __attribute__((optimize("O0"))) delay(uint32_t count)
-{
-    //count = count >> 3;
-    count = count / 11;
+    // NOTE: Multiply by ~3.5 to convert count value to us (microsecond) value
+    // This multiplier is very specific to this chip (based on operating frequency, instruction architecture, etc.)
+    // NOTE: 3.5 x count = (4 * count) - (count / 2) -> use shift operations instead of multiply
+    count = (count << 2) - (count >> 1);
     while (count > 0)
     {
         count--;
+    }
+}
+
+void __attribute__((optimize("O0"))) delay_ns(uint32_t count)
+{
+    // NOTE: can't delay less than ~760ns due to hardware limitations (IOPS)
+    if (count > 800)
+    {
+        delay_us((count / 1000) + 1);
     }
 }
 
@@ -98,11 +91,11 @@ void heartbeat_toggle()
 }
 
 /* Enable HeartBeat Timer Interrupt and set its Priority to level 6 (lowest) */
+const float heartbeat_rate = 250e-3;
 void heartbeat_init()
 {
     HEARTBEAT_TRIS = 0;
-
-    uint16_t match_val = (Fcy / 256) * 300e-3;
+    uint16_t match_val = (Fcy / 256) * heartbeat_rate;
 
     ConfigIntTimer1(T1_INT_PRIOR_6 & T1_INT_ON);
     WriteTimer1(0);

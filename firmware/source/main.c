@@ -19,7 +19,6 @@ _FWDT(FWDTEN_OFF);
 
 int main(void)
 {
-    // initialize all peripherals/modules
     clock_init();
     periph_disable_all();
     spi_init();
@@ -49,9 +48,6 @@ int main(void)
     motor_set_dir(Driver2, Channel1, Forward);
     motor_set_current_level(Driver2, Channel2, Full);
     motor_set_dir(Driver2, Channel2, Forward);
-
-
-    //TRISBbits.TRISB4 = 0;
 
 
     float step = 0.03;
@@ -84,9 +80,6 @@ int main(void)
         uint16_t a5_val = analog_read(A5);
         uint16_t a6_val = analog_read(A6);
 
-
-
-        //LATBbits.LATB4 = !LATBbits.LATB4;
 
         delay_ms(100);
     }
