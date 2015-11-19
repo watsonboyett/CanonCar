@@ -24,7 +24,7 @@ int main(void)
     spi_init();
     io_init();
     //RFM12_init();
-    motor_init();
+    //motor_init();
     heartbeat_init();
 
     //stick_init();
@@ -34,9 +34,9 @@ int main(void)
     pin_mode(A2, Digital, Input);
     pin_mode(D1, Digital, Output);
     pin_mode(D7, Digital, Input);
-    pin_mode(A5, Analog, Input);
-    pin_mode(A6, Analog, Input);
-
+    //pin_mode(A5, Analog, Input);
+    //pin_mode(A6, Analog, Input);
+/*
     motor_set_mode(Driver1, DC);
     motor_set_current_level(Driver1, Channel1, Full);
     motor_set_dir(Driver1, Channel1, Forward);
@@ -48,40 +48,50 @@ int main(void)
     motor_set_dir(Driver2, Channel1, Forward);
     motor_set_current_level(Driver2, Channel2, Full);
     motor_set_dir(Driver2, Channel2, Forward);
-
-
-    float step = 0.03;
+*/
+    int counter = 0;
     float speed = 1.0;
-    float dir = 1;
+    bool dir = true;
     while (1)
     {
-        if (speed >= 1.0)
+        if (counter % 20 == 0)
         {
-            dir = -1;
+            dir = !dir;
         }
-        else if (speed <= 0.5)
+/*
+        if (dir)
         {
-            dir = 1;
+            motor_set_dir(Driver1, Channel1, Forward);
+            motor_set_dir(Driver1, Channel2, Forward);
+            motor_set_dir(Driver2, Channel1, Forward);
+            motor_set_dir(Driver2, Channel2, Forward);
         }
-        speed = speed + (dir * step);
-
+        else
+        {
+            motor_set_dir(Driver1, Channel1, Reverse);
+            motor_set_dir(Driver1, Channel2, Reverse);
+            motor_set_dir(Driver2, Channel1, Reverse);
+            motor_set_dir(Driver2, Channel2, Reverse);
+        }
+        
         motor_set_speed(Driver1, Channel1, speed);
         motor_set_speed(Driver1, Channel2, speed);
         motor_set_speed(Driver2, Channel1, speed);
-        motor_set_speed(Driver2, Channel2, 1.0);
-
+        motor_set_speed(Driver2, Channel2, speed);
+*/
 
         bool a2_val = digital_read(A2);
         digital_write(A1, !a2_val);
 
-        //bool d7_val = digital_read(D7);
-        //digital_write(D1, !d7_val);
+        bool d7_val = digital_read(D7);
+        digital_write(D1, dir);
 
-        uint16_t a5_val = analog_read(A5);
-        uint16_t a6_val = analog_read(A6);
+        //uint16_t a5_val = analog_read(A5);
+        //uint16_t a6_val = analog_read(A6);
 
 
         delay_ms(100);
+        counter++;
     }
 
     return 0;

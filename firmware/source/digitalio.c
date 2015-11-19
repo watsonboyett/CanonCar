@@ -172,7 +172,9 @@ bool digitalio_read_internal(RegAddr_t reg_addr, const uint8_t bit_pos)
 void digitalio_write_external(const uint8_t device_addr, const uint8_t reg_addr, const uint8_t bit_pos, const bool val)
 {
     uint8_t latch = digitalio_read_spi_register(device_addr, reg_addr);
-    //latch = digitalio_read_spi_register(device_addr, DIO_ADDR_OLAT);
+    delay_us(1);
+    uint8_t port = digitalio_read_spi_register(device_addr, DIO_ADDR_GPIO);
+    delay_us(1);
     if (val)
     {
         bit_set(latch, bit_pos);
@@ -183,6 +185,8 @@ void digitalio_write_external(const uint8_t device_addr, const uint8_t reg_addr,
     }
     digitalio_write_spi_register(device_addr, DIO_ADDR_OLAT, latch);
     delay_us(1);
+    port = digitalio_read_spi_register(device_addr, DIO_ADDR_GPIO);
+    delay_us(1);
 }
 
 bool digitalio_read_external(const uint8_t device_addr, const uint8_t reg_addr, const uint8_t bit_pos)
@@ -190,7 +194,7 @@ bool digitalio_read_external(const uint8_t device_addr, const uint8_t reg_addr, 
     // NOTE: first read gives incorrect values, second read gives correct values
     // (not sure why...)
     uint8_t port = digitalio_read_spi_register(device_addr, reg_addr);
-    port = digitalio_read_spi_register(device_addr, reg_addr);
+    //port = digitalio_read_spi_register(device_addr, reg_addr);
     bool val = bit_read(port, bit_pos);
     return val;
 }
@@ -198,8 +202,9 @@ bool digitalio_read_external(const uint8_t device_addr, const uint8_t reg_addr, 
 /* write sequence for DIO SPI device */
 void digitalio_write_spi_register(const uint8_t device_addr, const uint8_t reg_addr, const uint8_t data)
 {
+    delay_ns(300);
     DIO_CS = 0;
-    delay_ns(100);
+    delay_ns(300);
 
     // send header + device addres + write opcode
     uint8_t header = DIO_CTRL_WRITE | (device_addr << 1);
@@ -211,15 +216,16 @@ void digitalio_write_spi_register(const uint8_t device_addr, const uint8_t reg_a
     // send data
     spi_write(data);
 
-    delay_ns(100);
+    delay_ns(300);
     DIO_CS = 1;
 }
 
 /* read sequence for DIO SPI device */
 uint8_t digitalio_read_spi_register(const uint8_t device_addr, const uint8_t reg_addr)
 {
+    delay_ns(300);
     DIO_CS = 0;
-    delay_ns(100);
+    delay_ns(300);
     
     // send header + device addres + write opcode
     uint8_t header = DIO_CTRL_READ | (device_addr << 1);
@@ -228,6 +234,8 @@ uint8_t digitalio_read_spi_register(const uint8_t device_addr, const uint8_t reg
     // send register address
     spi_write(reg_addr);
 
+    delay_ns(500);
+    
     // clear receive buffer (and overflow bit)
     spi_clear_rx();
 
@@ -237,7 +245,7 @@ uint8_t digitalio_read_spi_register(const uint8_t device_addr, const uint8_t reg
     // read from receive buffer
     uint8_t data = spi_read();
 
-    delay_ns(100);
+    delay_ns(300);
     DIO_CS = 1;
 
     return data;

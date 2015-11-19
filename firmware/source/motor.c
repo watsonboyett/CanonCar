@@ -34,13 +34,15 @@ void motor_init()
 void motor_pwm_init()
 {
     // connect PWM pins to Output Compare module (for motor control voltage)
+/*
     PPSUnLock;
     OUT_PIN_PPS_RP5 = OUT_FN_PPS_OC1;
     OUT_PIN_PPS_RP6 = OUT_FN_PPS_OC2;
     OUT_PIN_PPS_RP7 = OUT_FN_PPS_OC3;
     OUT_PIN_PPS_RP8 = OUT_FN_PPS_OC4;
     PPSLock;
-
+*/
+    
     // Initialize Output Compare Modules
     OC1CONbits.OCM = 0b000; // Disable Output Compare Module
     OC1R = 0; // Write the duty cycle for the first PWM pulse
@@ -90,7 +92,13 @@ void motor_io_init()
     pin_mode(M2_I1X, Digital, Output);
 
     // setup open drain outputs (for full motor voltage range)
-    ODCB = ODCB | 0b0000000011100000;
+    //ODCB = ODCB | 0b0000000011100000;
+    ODCB = ODCB | 0b0000000000000000;
+    
+    pin_mode(M1_VREF1, Digital, Output);
+    pin_mode(M1_VREF2, Digital, Output);
+    pin_mode(M2_VREF1, Digital, Output);
+    pin_mode(M2_VREF2, Digital, Output);
 }
 
 MotorMode_e Driver1_Mode = DC;
@@ -194,6 +202,15 @@ void motor_set_current_level(MotorDriver_e driver, DriverChannel_e channel, Moto
 /* stop motor voltage/speed */
 void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
 {
+    bool output = false;
+    if (val > 0.5)
+    {
+        output = true;
+    }
+    
+    
+    
+    
     uint16_t buf = val * PWM_RES;
     // ensure output is clamped at max value
     if (buf > PWM_RES)
@@ -208,10 +225,12 @@ void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
         if (channel == Channel1 || Driver1_Mode == Stepper)
         {
             Driver1_Channel1_DC = buf;
+            digital_write(M1_VREF1, output);
         }
         if (channel == Channel2 || Driver1_Mode == Stepper)
         {
             Driver1_Channel2_DC = buf;
+            digital_write(M1_VREF2, output);
         }
         break;
 
@@ -219,10 +238,12 @@ void motor_set_speed(MotorDriver_e driver, DriverChannel_e channel, float val)
         if (channel == Channel1 || Driver2_Mode == Stepper)
         {
             Driver2_Channel1_DC = buf;
+            digital_write(M2_VREF2, output);
         }
         if (channel == Channel2 || Driver2_Mode == Stepper)
         {
             Driver2_Channel2_DC = buf;
+            digital_write(M2_VREF2, output);
         }
         break;
 
