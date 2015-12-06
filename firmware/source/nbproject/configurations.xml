@@ -27,45 +27,6 @@
                    displayName="Object Files"
                    projectFiles="true">
     </logicalFolder>
-    <logicalFolder name="peripheral_30F_24H_33F"
-                   displayName="peripheral_30F_24H_33F"
-                   projectFiles="true">
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/adc.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/adc10.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/adc12.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/can.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/comparator.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/crc.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/CTMU.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/dac.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/dci.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/delay.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/dma.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/ecan.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/Generic.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/hspwm.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/i2c.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/incap.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/outcompare.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/peripheralversion.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/pmp.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/ports.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/pps.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/PTG.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/pwm.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/pwm12.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/qei.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/qei32.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/reset.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/rtcc.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/smpsadc.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/smpscmp.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/smpspwm.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/spi.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/timer.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/uart.h</itemPath>
-      <itemPath>/Applications/microchip/xc16/v1.00/support/peripheral_30F_24H_33F/xlcd.h</itemPath>
-    </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">

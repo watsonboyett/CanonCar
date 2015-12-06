@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=mkdir -p
+MKDIR=gnumkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -86,70 +86,70 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/motor.o: motor.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/motor.o.d 
 	@${RM} ${OBJECTDIR}/motor.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  motor.c  -o ${OBJECTDIR}/motor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  motor.c  -o ${OBJECTDIR}/motor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/motor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/rfm12.o: rfm12.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/rfm12.o.d 
 	@${RM} ${OBJECTDIR}/rfm12.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  rfm12.c  -o ${OBJECTDIR}/rfm12.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rfm12.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  rfm12.c  -o ${OBJECTDIR}/rfm12.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rfm12.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/rfm12.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/digitalio.o: digitalio.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/digitalio.o.d 
 	@${RM} ${OBJECTDIR}/digitalio.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  digitalio.c  -o ${OBJECTDIR}/digitalio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/digitalio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  digitalio.c  -o ${OBJECTDIR}/digitalio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/digitalio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/digitalio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/util.o: util.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/util.o.d 
 	@${RM} ${OBJECTDIR}/util.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  util.c  -o ${OBJECTDIR}/util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/util.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  util.c  -o ${OBJECTDIR}/util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/util.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/util.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/spi_util.o: spi_util.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/spi_util.o.d 
 	@${RM} ${OBJECTDIR}/spi_util.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  spi_util.c  -o ${OBJECTDIR}/spi_util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi_util.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  spi_util.c  -o ${OBJECTDIR}/spi_util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi_util.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/spi_util.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/analogio.o: analogio.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/analogio.o.d 
 	@${RM} ${OBJECTDIR}/analogio.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  analogio.c  -o ${OBJECTDIR}/analogio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/analogio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  analogio.c  -o ${OBJECTDIR}/analogio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/analogio.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/analogio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/controller.o: controller.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/controller.o.d 
 	@${RM} ${OBJECTDIR}/controller.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  controller.c  -o ${OBJECTDIR}/controller.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/controller.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  controller.c  -o ${OBJECTDIR}/controller.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/controller.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/controller.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/io.o: io.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/io.o.d 
 	@${RM} ${OBJECTDIR}/io.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  io.c  -o ${OBJECTDIR}/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/io.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  io.c  -o ${OBJECTDIR}/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/io.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/io.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/pins.o: pins.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pins.o.d 
 	@${RM} ${OBJECTDIR}/pins.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  pins.c  -o ${OBJECTDIR}/pins.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pins.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  pins.c  -o ${OBJECTDIR}/pins.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pins.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/pins.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
@@ -157,70 +157,70 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/motor.o: motor.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/motor.o.d 
 	@${RM} ${OBJECTDIR}/motor.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  motor.c  -o ${OBJECTDIR}/motor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  motor.c  -o ${OBJECTDIR}/motor.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/motor.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/rfm12.o: rfm12.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/rfm12.o.d 
 	@${RM} ${OBJECTDIR}/rfm12.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  rfm12.c  -o ${OBJECTDIR}/rfm12.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rfm12.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  rfm12.c  -o ${OBJECTDIR}/rfm12.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rfm12.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/rfm12.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/digitalio.o: digitalio.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/digitalio.o.d 
 	@${RM} ${OBJECTDIR}/digitalio.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  digitalio.c  -o ${OBJECTDIR}/digitalio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/digitalio.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  digitalio.c  -o ${OBJECTDIR}/digitalio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/digitalio.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/digitalio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/util.o: util.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/util.o.d 
 	@${RM} ${OBJECTDIR}/util.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  util.c  -o ${OBJECTDIR}/util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/util.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  util.c  -o ${OBJECTDIR}/util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/util.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/util.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/spi_util.o: spi_util.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/spi_util.o.d 
 	@${RM} ${OBJECTDIR}/spi_util.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  spi_util.c  -o ${OBJECTDIR}/spi_util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi_util.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  spi_util.c  -o ${OBJECTDIR}/spi_util.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi_util.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/spi_util.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/analogio.o: analogio.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/analogio.o.d 
 	@${RM} ${OBJECTDIR}/analogio.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  analogio.c  -o ${OBJECTDIR}/analogio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/analogio.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  analogio.c  -o ${OBJECTDIR}/analogio.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/analogio.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/analogio.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/controller.o: controller.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/controller.o.d 
 	@${RM} ${OBJECTDIR}/controller.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  controller.c  -o ${OBJECTDIR}/controller.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/controller.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  controller.c  -o ${OBJECTDIR}/controller.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/controller.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/controller.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/io.o: io.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/io.o.d 
 	@${RM} ${OBJECTDIR}/io.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  io.c  -o ${OBJECTDIR}/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/io.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  io.c  -o ${OBJECTDIR}/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/io.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/io.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/pins.o: pins.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pins.o.d 
 	@${RM} ${OBJECTDIR}/pins.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  pins.c  -o ${OBJECTDIR}/pins.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pins.o.d"        -g -omf=elf -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off -std=c99
+	${MP_CC} $(MP_EXTRA_CC_PRE)  pins.c  -o ${OBJECTDIR}/pins.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pins.o.d"        -g -omf=elf -no-legacy-libc  -O0 -I"../C:/Program Files/Microchip/MPLAB C30/support/PIC24H/h" -I"../C:/Program Files/Microchip/MPLAB C30/support/peripheral_30F_24H_33F" -I".." -msmart-io=1 -Wall -msfr-warn=off   -std=c99
 	@${FIXDEPS} "${OBJECTDIR}/pins.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
@@ -242,13 +242,13 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf  -mreserve=data@0x800:0x81F -mreserve=data@0x820:0x821 -mreserve=data@0x822:0x823 -mreserve=data@0x824:0x825 -mreserve=data@0x826:0x84F   -Wl,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--library-path="../C:/Program Files/Microchip/MPLAB C30/lib/PIC24H",--library-path="/Applications/microchip/xc16/v1.00/lib/PIC24H",--no-force-link,--smart-io,-Map="${DISTDIR}/StickControl.X.${IMAGE_TYPE}.map",--report-mem,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -no-legacy-libc   -mreserve=data@0x800:0x81F -mreserve=data@0x820:0x821 -mreserve=data@0x822:0x823 -mreserve=data@0x824:0x825 -mreserve=data@0x826:0x84F   -Wl,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--library-path="../C:/Program Files/Microchip/MPLAB C30/lib/PIC24H",--library-path="/Applications/microchip/xc16/v1.00/lib/PIC24H",--no-force-link,--smart-io,-Map="${DISTDIR}/StickControl.X.${IMAGE_TYPE}.map",--report-mem,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml$(MP_EXTRA_LD_POST) 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--library-path="../C:/Program Files/Microchip/MPLAB C30/lib/PIC24H",--library-path="/Applications/microchip/xc16/v1.00/lib/PIC24H",--no-force-link,--smart-io,-Map="${DISTDIR}/StickControl.X.${IMAGE_TYPE}.map",--report-mem,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml$(MP_EXTRA_LD_POST) 
-	${MP_CC_DIR}/xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -no-legacy-libc  -Wl,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--library-path="../C:/Program Files/Microchip/MPLAB C30/lib/PIC24H",--library-path="/Applications/microchip/xc16/v1.00/lib/PIC24H",--no-force-link,--smart-io,-Map="${DISTDIR}/StickControl.X.${IMAGE_TYPE}.map",--report-mem,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml$(MP_EXTRA_LD_POST) 
+	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/source.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
 	
 endif
 
@@ -268,7 +268,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif
