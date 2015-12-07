@@ -3,7 +3,7 @@
 
 #include "../bsp/bsp.h"
 
-#define ADC_NCHAN 8
+#define ADC_NCHAN 10
 #define ADC_RES 4096
 
 void analogio_init();

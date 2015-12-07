@@ -40,8 +40,6 @@ void adc_init()
     bit_set(cfg_AD1CSSL, get_pin_info(A5)->analog_chan);
     bit_set(cfg_AD1CSSL, get_pin_info(A6)->analog_chan);
     //bit_set(cfg_AD1CSSL, get_pin_info(A7)->analog_chan);
-    //bit_set(cfg_AD1CSSL, get_pin_info(A8)->analog_chan);
-    //bit_set(cfg_AD1CSSL, get_pin_info(A9)->analog_chan);
     AD1CSSL = cfg_AD1CSSL;
 
     // initialize analog pins into digital mode
@@ -114,7 +112,22 @@ uint16_t analogio_read(PinConfig_s * pin)
     uint16_t value = 0;
     if (chan != -1)
     {
-        value = ADC_buf[chan];
+        switch (chan)
+        {
+            case 0:
+                value = ADC_buf[0];
+                break;
+            case 1:
+                value = ADC_buf[1];
+                break;
+            case 4:
+                value = ADC_buf[2];
+                break;
+            case 5:
+                value = ADC_buf[3];
+                break;
+        }
+        
     }
     return value;
 }
