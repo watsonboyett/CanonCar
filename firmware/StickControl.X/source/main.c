@@ -89,14 +89,86 @@ void motor_test()
     }
 }
 
+
+void motor_app()
+{
+    spi_init();
+    io_init();
+    motor_init();
+
+    pin_mode(A0, Digital, Output);
+    pin_mode(A6, Analog, Input);
+    pin_mode(A1, Analog, Input);
+    pin_mode(A2, Digital, Input);
+    pin_mode(A3, Digital, Input);
+    pin_mode(A4, Digital, Input);
+    pin_mode(A5, Digital, Input);
+    
+    motor_set_mode(Driver1, DC);
+    motor_set_current_level(Driver1, Channel1, Full);
+    motor_set_dir(Driver1, Channel1, Forward);
+    motor_set_current_level(Driver1, Channel2, Full);
+    motor_set_dir(Driver1, Channel2, Forward);
+
+    motor_set_mode(Driver2, DC);
+    motor_set_current_level(Driver2, Channel1, Full);
+    motor_set_dir(Driver2, Channel1, Forward);
+    motor_set_current_level(Driver2, Channel2, Full);
+    motor_set_dir(Driver2, Channel2, Forward);
+
+    int counter = 0;
+    bool val = 0;
+    while (1)
+    {
+        float speed = 0;
+        float stick_fwd = analog_read_frac(A6);       
+        if (stick_fwd > 0.7)
+        {
+            motor_set_dir(Driver1, Channel1, Reverse);
+            speed = 1;
+        }
+        else if (stick_fwd < 0.3)
+        {
+            motor_set_dir(Driver1, Channel1, Forward);
+            speed = 1;
+        }
+        motor_set_speed(Driver1, Channel1, speed);
+
+        float angle = 0;
+        float stick_dir = analog_read_frac(A1);
+        if (stick_dir > 0.7)
+        {
+            motor_set_dir(Driver1, Channel2, Forward);
+            angle = 1;
+        }
+        else if (stick_dir < 0.3)
+        {
+            motor_set_dir(Driver1, Channel2, Reverse);
+            angle = 1;
+        }
+        motor_set_speed(Driver1, Channel2, angle);
+
+        
+        
+
+        val = !val;
+        digital_write(A0, val);
+        delay_ms(10);
+        counter++;
+    }
+}
+
+
 int main(void)
 {
     clock_init();
     periph_disable_all();
 
     //io_test();
-    motor_test();
+    //motor_test();
 
+    motor_app();
+    
     return 0;
 }
 

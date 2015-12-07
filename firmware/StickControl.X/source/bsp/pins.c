@@ -43,27 +43,27 @@ PinInfo_s SM6_info = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .
 PinInfo_s SM7_info = {.location = SPI_DIO, .addr = 0b11, .tris = 0, .port = 0, .latch = 0, .bit_pos = 7};
 
 
-PinConfig_s Pin_RA0 = {.info = &RA0_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RA1 = {.info = &RA1_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RA2 = {.info = &RA2_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RA3 = {.info = &RA3_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RA4 = {.info = &RA4_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB0 = {.info = &RB0_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB1 = {.info = &RB1_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB2 = {.info = &RB2_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB3 = {.info = &RB3_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB4 = {.info = &RB4_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB5 = {.info = &RB5_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB6 = {.info = &RB6_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB7 = {.info = &RB7_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB8 = {.info = &RB8_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB9 = {.info = &RB9_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB10 = {.info = &RB10_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB11 = {.info = &RB11_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB12 = {.info = &RB12_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB13 = {.info = &RB13_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB14 = {.info = &RB14_info, .mode = Digital, .dir = Output};
-PinConfig_s Pin_RB15 = {.info = &RB15_info, .mode = Digital, .dir = Output};
+PinConfig_s Pin_RA0 = {.info = &RA0_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RA1 = {.info = &RA1_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RA2 = {.info = &RA2_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RA3 = {.info = &RA3_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RA4 = {.info = &RA4_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB0 = {.info = &RB0_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB1 = {.info = &RB1_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB2 = {.info = &RB2_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB3 = {.info = &RB3_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB4 = {.info = &RB4_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB5 = {.info = &RB5_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB6 = {.info = &RB6_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB7 = {.info = &RB7_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB8 = {.info = &RB8_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB9 = {.info = &RB9_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB10 = {.info = &RB10_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB11 = {.info = &RB11_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB12 = {.info = &RB12_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB13 = {.info = &RB13_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB14 = {.info = &RB14_info, .mode = Digital, .dir = Input};
+PinConfig_s Pin_RB15 = {.info = &RB15_info, .mode = Digital, .dir = Input};
 
 PinConfig_s Pin_D0 = {.info = &SD0_info, .mode = Digital, .dir = Input};
 PinConfig_s Pin_D1 = {.info = &SD1_info, .mode = Digital, .dir = Input};
