@@ -24,7 +24,7 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -1148,7 +1148,7 @@ Source: http://www.onsemi.com/pub_link/Collateral/MBRA340T3-D.PDF</description>
 <class number="2" name="ground" width="0.508" drill="0.381">
 </class>
 </classes>
-<designrules name="Smsls-4layer">
+<designrules name="Smsls-4layer *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -1212,7 +1212,7 @@ Please make sure your boards conform to these design rules.</description>
 <param name="mlMaxStopFrame" value="3mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
-<param name="mlViaStopLimit" value="0mil"/>
+<param name="mlViaStopLimit" value="25mil"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
@@ -2995,6 +2995,16 @@ Please make sure your boards conform to these design rules.</description>
 <approved hash="5,16,f3108627ed2246fb"/>
 <approved hash="5,16,ce77a5eed81bc77e"/>
 <approved hash="5,16,ceb5b1e5ccb2c71e"/>
+<approved hash="5,1,0a99cab816879e71"/>
+<approved hash="5,1,5707654dc7ab0eef"/>
+<approved hash="5,1,bb8c89cd9fab56e4"/>
+<approved hash="5,1,cefe88ed9d770676"/>
+<approved hash="5,1,6c325e4dbfab76da"/>
+<approved hash="5,1,19405f6dbd772648"/>
+<approved hash="5,1,a5cae3ed7577ee42"/>
+<approved hash="5,1,d0b8e2cd77abbed0"/>
+<approved hash="5,1,253e174ddfab16d6"/>
+<approved hash="5,1,504c166ddd774644"/>
 <approved hash="3,1,c89b79757e3bcfd5"/>
 <approved hash="3,1,22e9bf813e15e478"/>
 <approved hash="3,1,33bd71d7710a3360"/>
@@ -3029,38 +3039,28 @@ Please make sure your boards conform to these design rules.</description>
 <approved hash="5,1,673e7454449c47e6"/>
 <approved hash="5,1,4a484add424149ce"/>
 <approved hash="5,1,6349001afe77a0d7"/>
-<approved hash="5,1,0a99cab816879e71"/>
 <approved hash="5,1,0219dc7806b79961"/>
 <approved hash="5,1,a22d36a4d9617094"/>
 <approved hash="5,1,2eaad0b12f082aeb"/>
-<approved hash="5,1,5707654dc7ab0eef"/>
 <approved hash="5,1,f51f7b4dc68bbda7"/>
 <approved hash="5,1,292689ed9fe7a83e"/>
-<approved hash="5,1,bb8c89cd9fab56e4"/>
-<approved hash="5,1,cefe88ed9d770676"/>
 <approved hash="5,1,199497cd9e8be5ac"/>
 <approved hash="5,1,1fe7ffc48115a355"/>
 <approved hash="5,1,a1e2430e55159682"/>
 <approved hash="5,1,1fe79a2c2c4da265"/>
-<approved hash="5,1,6c325e4dbfab76da"/>
 <approved hash="5,1,653d195a74bbe54e"/>
 <approved hash="5,1,ce2a404dbe8bc592"/>
 <approved hash="5,1,fe985e6dbfe78800"/>
-<approved hash="5,1,19405f6dbd772648"/>
 <approved hash="5,1,eec660db074c7bf0"/>
 <approved hash="5,1,efc6c0fd66ae3bf4"/>
 <approved hash="5,1,caf1e05f20e7a1c1"/>
 <approved hash="5,1,72a0fccd768b0d98"/>
 <approved hash="5,1,b43794c97f91106b"/>
 <approved hash="5,1,4212e2ed77e7400a"/>
-<approved hash="5,1,a5cae3ed7577ee42"/>
-<approved hash="5,1,d0b8e2cd77abbed0"/>
 <approved hash="5,1,4c206644db76c1ff"/>
 <approved hash="5,1,e384eb20bf3e089b"/>
-<approved hash="5,1,253e174ddfab16d6"/>
 <approved hash="5,1,8726094dde8ba59e"/>
 <approved hash="5,1,b794176ddfe7e80c"/>
-<approved hash="5,1,504c166ddd774644"/>
 <approved hash="5,1,847657cd6980f633"/>
 <approved hash="5,1,28e7cfe79d036450"/>
 <approved hash="5,1,aa6cc730974c1996"/>
