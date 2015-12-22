@@ -15234,7 +15234,7 @@ Thru-hole RA Female Mini-B USB Connector 4UConnector: 18732&lt;/p&gt;
 <parts>
 <part name="MD1" library="microchip" deviceset="MTS62C19A" device=""/>
 <part name="MD2" library="microchip" deviceset="MTS62C19A" device=""/>
-<part name="11RS" library="resistor" deviceset="R-US_" device="R1210" value="1"/>
+<part name="11RS" library="resistor" deviceset="R-US_" device="R1210" value="0.5"/>
 <part name="12RS" library="resistor" deviceset="R-US_" device="R1210" value="1"/>
 <part name="11RC" library="rcl" deviceset="R-US_" device="R0805" value="2k"/>
 <part name="12RC" library="rcl" deviceset="R-US_" device="R0805" value="2k"/>
@@ -15253,7 +15253,7 @@ Thru-hole RA Female Mini-B USB Connector 4UConnector: 18732&lt;/p&gt;
 <part name="22CT" library="rcl" deviceset="C-US" device="C0805" value="1n"/>
 <part name="22CC" library="rcl" deviceset="C-US" device="C0805" value="1n"/>
 <part name="R22" library="rcl" deviceset="R-US_" device="R0805" value="2k"/>
-<part name="21RS" library="resistor" deviceset="R-US_" device="R1210" value="1"/>
+<part name="21RS" library="resistor" deviceset="R-US_" device="R1210" value="0.5"/>
 <part name="22RS" library="resistor" deviceset="R-US_" device="R1210" value="1"/>
 <part name="C13" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
 <part name="1LDB" library="rcl" deviceset="C-US" device="C0805" value="100n"/>
